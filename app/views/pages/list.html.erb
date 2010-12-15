@@ -1,0 +1,25 @@
+<% @page_title = "Page List"%>
+<div class="page list">
+	<h2>Pages</h2>
+	<%= link_to("Add new Page", {:action=>"new"}, :class=>"action new round") %>
+	<table class="listing" summary="Page list">
+		<caption>Tak toto je ta moja prva caption...</caption>
+		<tr class="header">
+			<th>Pos</th>
+			<th>Page name</th>
+			<th>Visible</th>
+			<th>Actions</th>
+		</tr>
+		<% @pages.each do |page| %>
+		<tr>
+			<td><%= page.position %></td>
+			<td><%= page.name %></td>
+			<td class="center"><%= status_tag(page.visible) %></td>
+			<td class="actions">
+			<%= action_links_tag(page) %>
+			</td>
+		</tr>
+		<% end %>		
+	</table>
+</div>
+	

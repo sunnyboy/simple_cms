@@ -1,0 +1,12 @@
+<% # Len pre demonštračné účely -> nemá žiadnu funkciu%>
+
+<%= link_to("Roar", "#", :onclick=>"jsRoar(); return true;") %>
+<%= javascript_tag("jsRoar();") %>
+
+<% text = "User submitted text" %>
+<%= javascript_tag("alert('#{text}');") %>
+
+<% text = "'); alert('Gotcha!" %>
+<%= javascript_tag("alert('#{text}');") %>
+
+<%= javascript_tag("alert('#{escape_javascript(text)}');") %>

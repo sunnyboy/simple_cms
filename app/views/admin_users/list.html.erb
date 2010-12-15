@@ -1,0 +1,23 @@
+<% @page_title="Admin Users List" %>
+
+<div class="user list">
+	<h2>Admin Users</h2>
+	<%= link_to("Add New Admin User", {:action=>"new"}, :class=>"action new round")%>
+	<div><%= pluralize(@admin_users.size ,"admin user") %> found</div>
+	<table class="listing" summary="Admin users list">
+		<tr>
+			<th>Username</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Actions</th>
+		</tr>
+		<% @admin_users.each do|admin_user| %>
+			<tr class="<%= cycle('odd', 'even') %>" >
+				<td><%= admin_user.username %></td>
+				<td><%= admin_user.name %></td>
+				<td><%= mail_to(admin_user.email) %></td>
+				<td class="actions"><%= action_links_tag(admin_user) %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>
