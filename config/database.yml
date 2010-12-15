@@ -11,7 +11,7 @@ development:
   reconnect: false
   database: simple_cms_development
   pool: 5
-  username: simple_cms
+  username: root
   password: secretpassword
   socket: /tmp/mysql.sock
 
