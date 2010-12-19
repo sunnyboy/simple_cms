@@ -1,8 +1,15 @@
 <% @page_title = "Page List"%>
+<%= link_to("<<Back to Subjects list", { :controller => "subjects", :action=>"list" }, :class=>"back-link") %>
 <div class="page list">
 	<h2>Pages</h2>
-	<%= link_to("Add new Page", {:action=>"new"}, :class=>"action new round") %>
-	<table class="listing" summary="Page list">
+	
+	<% if params[:subject_id] %>
+		<%= link_to("Add new Page", {:action=>"new", :subject_id => @subject.id }, :class=>"action new round") %>
+	<% else %>
+		<%= link_to("Add new Page", {:action=>"new" }, :class=>"action new round") %>
+	<% end %>
+	
+	<table class="list" summary="Page list">
 		<caption>Tak toto je ta moja prva caption...</caption>
 		<tr class="header">
 			<th>Pos</th>
@@ -16,7 +23,20 @@
 			<td><%= page.name %></td>
 			<td class="center"><%= status_tag(page.visible) %></td>
 			<td class="actions">
-			<%= action_links_tag(page) %>
+				<% if params[:subject_id] %>
+				<%= link_to("Show", {:action=>"show", :id => page.id, :subject_id => @subject.id}, :class=>"action show round center")       %>
+		    	<%= link_to("Edit", {:action=>"edit", :id => page.id, :subject_id => @subject.id}, :class=>"action edit round center")       %>
+		    	<%= link_to("Delete", {:action=>"delete", :id => page.id, :subject_id => @subject.id}, :class=>"action delete round center") %>
+				<%= link_to("View Sections", {:controller=>"sections", :action=>"list", 
+					:page_id => page.id}, :class=>"action show round center")%>
+				<% else %>
+				<%= link_to("Show", {:action=>"show", :id => page.id }, :class=>"action show round center")       %>
+		    	<%= link_to("Edit", {:action=>"edit", :id => page.id }, :class=>"action edit round center")       %>
+		    	<%= link_to("Delete", {:action=>"delete", :id => page.id }, :class=>"action delete round center") %>
+				<%= link_to("View Sections", {:controller=>"sections", :action=>"list"}, :class=>"action show round center")%>
+				<% end %>
+				
+
 			</td>
 		</tr>
 		<% end %>		

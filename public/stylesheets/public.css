@@ -32,6 +32,7 @@ a:hover	{ }
 #navigation
 		{ float: left; width: 180px; min-height: 480px; padding: 10px; background: #94B26F; color: #4C2516; }
 #content{ float: left; padding: 10px; }
+#footer	{ clear: both; height: 2.5em; text-align: right; background: #4C2516; color: #F2DC87; }
 #footer	p
 		{ margin: 0; padding: 0.5em 1em; }
 .logo	{ margin: 0; padding: 0.5em 0.5em; float: left; }

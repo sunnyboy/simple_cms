@@ -1,4 +1,8 @@
+require File.join(RAILS_ROOT, 'lib', 'position_mover.rb')
+
 class Page < ActiveRecord::Base
+  include PositionMover
+
   belongs_to :subject, {:foreign_key=>"subject_id"}
   # fk subject_id nieje treba definovat. Rails to automaticky predpoklada. Pouziva sa len ak je fk iny ako predpokladany.
   has_many :sections
@@ -13,6 +17,15 @@ class Page < ActiveRecord::Base
   validates_uniqueness_of :permalink
   #validates_uniqueness_of :permalink, :scope=>:subject_id
   #for unique values by subject  
+  
+  scope :visible, where(:visible=>true)
+  scope :invisible, where(:visible=>false)
+  scope :sorted, order('pages.position ASC')
+  
+  private
+  def position_scope # redefines method from module PositionMover
+    "pages.subject_id = #{subject_id.to_i}" 
+  end
 
 end
 

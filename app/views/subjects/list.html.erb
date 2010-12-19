@@ -1,10 +1,10 @@
 <% @page_title = "Subject List"%>
-
+<%= link_to("<<Back to Menu", {:controller => "access", :action=>"menu"}, :class=>"back-link") %>
 <div class="subject list">
 	<h2>Subjects</h2>
 	<%= link_to("Add new Subject", {:action=>"new"}, :class=>"action new round") %>
 	<div><%= pluralize(@subjects.size, "subject") %> found</div>
-	<table class="listing" summary="Subject list">
+	<table class="list" summary="Subject list">
 		<tr class="header">
 			<th>&nbsp;</th>
 			<th>Subject</th>
@@ -16,13 +16,15 @@
 		<tr class="<%= cycle("odd", "even") %>">
 			<td><%= subject.position %></td>
 			<td><%= subject.name %></td>
-			<% var_class=subject %>
+			<% var_class = subject %>
 			<td class="center"><%= status_tag(subject.visible ) %></td>
 			<td class="center"><%= subject.pages.size %></td>
 			<td class="actions">
-				<%= action_links_tag(subject) %>
+				<%= link_to("Show", {:action=>"show", :id => subject.id }, :class=>"action show round center")       %>
+		    	<%= link_to("Edit", {:action=>"edit", :id => subject.id }, :class=>"action edit round center")       %>
+		    	<%= link_to("Delete", {:action=>"delete", :id => subject.id }, :class=>"action delete round center") %>
 				<%= link_to("View Pages", {:controller=>"pages", :action=>"list", 
-					:subject_id=>subject.id}, :class=>"action show round center")%>
+					:subject_id => subject.id}, :class=>"action show round center")%>
 			</td>
 		</tr>
 		<% end %>		

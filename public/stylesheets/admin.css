@@ -30,7 +30,7 @@ a.action:hover { backgrounf: #B6D492; }
 .form-buttons { text-align: center; margin: 1em 0; }
 
 .list table	{ clear: both; width: 100%; }
-.list table tr td { border: 1px solid #666666; }
+.list table tr td { border: 1px solid #666666; width: auto;}
 .show table	{ clear: both; margin: 0 200px; width: 300px; }
 .show table.wide { width: 600px; margin: 0 50px; }
 .show table tr th { white-space: nowrap; padding-right: 5px; }

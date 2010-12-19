@@ -1,10 +1,10 @@
 <% @page_title="Admin Users List" %>
-
+<%= link_to("<<Back to Menu", {:controller => "access", :action=>"menu"}, :class=>"back-link") %>
 <div class="user list">
 	<h2>Admin Users</h2>
 	<%= link_to("Add New Admin User", {:action=>"new"}, :class=>"action new round")%>
 	<div><%= pluralize(@admin_users.size ,"admin user") %> found</div>
-	<table class="listing" summary="Admin users list">
+	<table class="list" summary="Admin users list">
 		<tr>
 			<th>Username</th>
 			<th>Name</th>

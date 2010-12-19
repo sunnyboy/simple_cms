@@ -4,25 +4,28 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Simple CMS | <%= @page_title || "Admin Area" %></title>
+	<title>Simple CMS | <%= @page_title || "Public Area" %></title>
 	<meta name="author" content="Michael Sopira">
-	<%= stylesheet_link_tag("public", "admin", :media=>"all") %>
-	<%= javascript_include_tag("application") %>
+	<%= stylesheet_link_tag("public") %>
 </head>
 <body>
 	<div id="header">
 		<div class="logo"><%= image_tag("rails.png", {:size=>"25x32", :alt=>"Rails logo"}) %></div>
-		<h1>Simple CMS Admin</h1>
+		<h1>Sophia</h1>
 	</div>
 	
 	<div id="main">		
-		<% if !flash[:notice].blank? %>
-			<div class="notice round"><%= flash[:notice] %></div>
-		<% end %>	
+		<div id="navigation">
+			<%= render(:partial=>"layouts/navigation", :locals => {:subjects => @subjects}) %>
+			<% # premennu @subjects nemusim predavat cez :locals=> ... je to len ako explicitny priklad %>
+		</div>
 		<div id="content">
 			<%= yield %>
 		</div>
+		<div class="clear">
+		</div>
 	</div> <!-- END DIV id="main" -->
+	
 	<div id="footer">
 		<p id="copyright">&copy; myCMS | Michael SOPIRA</p>
 		<%#= debug(params) %>

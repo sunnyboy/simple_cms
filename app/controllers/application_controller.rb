@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  protected # pristupne tomuto Classu a vsetkym pod Classom
+  protected # pristupne tomuto Classu a vsetkym sub-Classom
   def confirm_logged_in
     unless session[:user_id]
       flash[:notice]="Please log in"

@@ -1,9 +1,9 @@
-<% @page_title = "Section List"%>
-
+<% @page_title = "Section List" %>
+<%= link_to("<<Back to Pages list", { :controller => "pages", :action => "list", :subject_id => @page.subject_id }, :class=>"back-link") %>
 <div class="section list">
 	<h2>Sections</h2>
-	<%= link_to("Add new Section", {:action=>"new"}, :class=>"action new round") %>
-	<table class="listing" summary="Section list">
+	<%= link_to("Add new Section", {:action => "new", :page_id => @page.id }, :class=>"action new round") %>
+	<table class="list" summary="Section list">
 		<tr class="header">
 			<th>Pos</th>
 			<th>Section name</th>
@@ -16,7 +16,9 @@
 			<td><%= section.name %></td>
 			<td class="center"><%= status_tag(section.visible) %></td>
 			<td class="actions">
-				<%= action_links_tag(section) %>
+				<%= link_to("Show", {:action=>"show", :id => section.id, :page_id => @page.id}, :class=>"action show round center")       %>
+		    	<%= link_to("Edit", {:action=>"edit", :id => section.id, :page_id => @page.id}, :class=>"action edit round center")       %>
+		    	<%= link_to("Delete", {:action=>"delete", :id => section.id, :page_id => @page.id}, :class=>"action delete round center") %>
 			</td>
 		</tr>
 		<% end %>		
