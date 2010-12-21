@@ -1,0 +1,10 @@
+<%= form_tag('/subjects', :method => 'get') do %>	
+	<%= hidden_field_tag :direction, params[:direction] %>
+	<%= hidden_field_tag :sort, params[:sort] %>
+  	<p>
+    	<%= text_field_tag :search, params[:search] %>  
+		<%# params[:search] uklada hladane slovo do textoveho pola a nasledne vo fielde zobrazi... nezmizne %>
+    	<%= submit_tag "Search", :name => nil %>		
+		<%# :name => nil sposobi ze sa nam nazov "search" nezobrazi v URL %>
+  	</p>
+<% end %>

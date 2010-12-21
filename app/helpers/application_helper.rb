@@ -28,5 +28,15 @@ module ApplicationHelper
   def error_messages_for (object)
     render(:partial=>"shared/error_messages", :locals=>{:object=>object})
   end
+  def sortable(column, title = nil)      
+    title ||= column.titleize  # if title is nill set value column.titleize
+    css_class = (column == sort_column) ? "current #{sort_direction} round" : nil
+    direction = (column == sort_column && sort_direction == "asc") ? "desc" : "asc" 
+    css_class || "round"
+    link_to title,  params.merge(:sort => column, :direction => direction, :page => nil),
+                    {:class => css_class}  
+                    # ak su html parametre (css) tak sa musia oddelit do samostatneho hashu
+                    # :page => nil zabezpeci vynulovanie parametra :page a teda pagination ide vzdy od zaciatku
+  end
 end
 

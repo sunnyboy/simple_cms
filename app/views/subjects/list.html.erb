@@ -3,31 +3,10 @@
 <div class="subject list">
 	<h2>Subjects</h2>
 	<%= link_to("Add new Subject", {:action=>"new"}, :class=>"action new round") %>
-	<div><%= pluralize(@subjects.size, "subject") %> found</div>
-	<table class="list" summary="Subject list">
-		<tr class="header">
-			<th>&nbsp;</th>
-			<th>Subject</th>
-			<th>Visible</th>
-			<th>Pages</th>
-			<th>Actions</th>
-		</tr>
-		<% @subjects.each do |subject| %>
-		<tr class="<%= cycle("odd", "even") %>">
-			<td><%= subject.position %></td>
-			<td><%= subject.name %></td>
-			<% var_class = subject %>
-			<td class="center"><%= status_tag(subject.visible ) %></td>
-			<td class="center"><%= subject.pages.size %></td>
-			<td class="actions">
-				<%= link_to("Show", {:action=>"show", :id => subject.id }, :class=>"action show round center")       %>
-		    	<%= link_to("Edit", {:action=>"edit", :id => subject.id }, :class=>"action edit round center")       %>
-		    	<%= link_to("Delete", {:action=>"delete", :id => subject.id }, :class=>"action delete round center") %>
-				<%= link_to("View Pages", {:controller=>"pages", :action=>"list", 
-					:subject_id => subject.id}, :class=>"action show round center")%>
-			</td>
-		</tr>
-		<% end %>		
-	</table>
+	<%= link_to("Update Subjects", {:action=>"update_all"}, :class=>"action new round") %>
+	<div><%= pluralize(@subjects.size, "subject") %> found</div>	
+	<%= render :partial => 'search_field_tag' %>
+	<%= render :partial => 'index_table' %>
+	<%= will_paginate @subjects %>
 </div>
 	

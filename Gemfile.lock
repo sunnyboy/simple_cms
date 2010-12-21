@@ -75,6 +75,7 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
+    will_paginate (3.0.pre2)
 
 PLATFORMS
   ruby
@@ -82,4 +83,5 @@ PLATFORMS
 DEPENDENCIES
   heroku
   mysql2
-  rails (= 3.0.3)
+  rails
+  will_paginate

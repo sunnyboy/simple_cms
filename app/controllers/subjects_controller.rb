@@ -1,5 +1,6 @@
 class SubjectsController < ApplicationController
   
+  helper_method :sort_column, :sort_direction #toto mi umozni dostupnost metod z Views a Helperov celej aplikacie
   layout "admin" # Oznamujem kontroleru, ze ma pouzivat layout "admin"
   
   before_filter :confirm_logged_in
@@ -9,7 +10,9 @@ class SubjectsController < ApplicationController
     render("list")
   end
   def list
-    @subjects = Subject.sorted
+    @subjects = Subject.search(params[:search])
+                        .order(sort_column+" "+sort_direction)
+                        .paginate(:per_page => 10, :page => params[:page])
   end
   def show
     @subject = Subject.find(params[:id])
@@ -32,7 +35,7 @@ class SubjectsController < ApplicationController
       # If save fails, redisplay the form so that user can fix the problems
       @subject_count = Subject.count + 1      
       render("new")
-    end      
+    end
   end
   def edit
      @subject = Subject.find(params[:id])
@@ -54,17 +57,19 @@ class SubjectsController < ApplicationController
       # If update fails, redisplay the form so that user can fix the problems
       @subject_count = Subject.count
       render("edit")
-    end      
+    end
   end
+  def update_all
+    @subjects = Subject.all
+    @subjects.each { |subject| subject.move_to_position(10)}
+    redirect_to(:action=>"list")
+  end  
   def delete
      @subject = Subject.find(params[:id])
   end
   def destroy
-     subject = Subject.find(params[:id])
-     subject.move_to_position(nil)
-     subject.destroy
-     flash[:notice]="Subject destroyed successfuly"
-     redirect_to(:action=>"list")
+    subject = Subject.find(params[:id])
+    subject.move_to_position(nil)
   end
   def javascript
     # Len pre demonštračné účely-> nemá žiadnu funkciu
@@ -78,4 +83,14 @@ class SubjectsController < ApplicationController
     # Len pre demonštračné účely-> nemá žiadnu funkciu
     # Sa môže vymazať
   end
+  private  
+  def sort_column  
+    Subject.column_names.include?(params[:sort]) ? params[:sort] : "position"  
+    # ak nieje hodnota params[:sort] z pola platnych nazvov columns tak nastavy default hodnotu
+  end      
+  def sort_direction  
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"  
+    #ak nieje hodnota params[:direction] z pola [asc desc] tak nastavy default hodnotu
+  end
+
 end
