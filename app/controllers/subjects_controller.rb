@@ -10,9 +10,7 @@ class SubjectsController < ApplicationController
     render("list")
   end
   def list
-    @subjects = Subject.search(params[:search])
-                        .order(sort_column+" "+sort_direction)
-                        .paginate(:per_page => 10, :page => params[:page])
+    @subjects = Subject.search(params[:search]).order(sort_column+" "+sort_direction).paginate(:per_page => 10, :page => params[:page])
   end
   def show
     @subject = Subject.find(params[:id])
@@ -60,8 +58,8 @@ class SubjectsController < ApplicationController
     end
   end
   def update_all
-    @subjects = Subject.all
-    @subjects.each { |subject| subject.move_to_position(10)}
+    # @subjects = Subject.all
+    # @subjects.each { |subject| subject.move_to_position(10)}
     redirect_to(:action=>"list")
   end  
   def delete
