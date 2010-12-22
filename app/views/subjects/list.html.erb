@@ -3,7 +3,12 @@
 <div class="subject list">
 	<h2>Subjects</h2>
 	<%= link_to("Add new Subject", {:action=>"new"}, :class=>"action new round") %>
-	<%= link_to("Update Subjects", {:action=>"update_all"}, :class=>"action new round") %>
+	<%= link_to("Update Subjects", {:action => "update_all", 
+									:page => params[:page], 
+									:sort => params[:sort], 
+									:direction => params[:direction],
+									:search => params[:search] }, 
+									:class=>"action new round") %>
 	<div><%= pluralize(@subjects.size, "subject") %> found</div>	
 	<%= render :partial => 'search_field_tag' %>
 	<%= render :partial => 'index_table' %>

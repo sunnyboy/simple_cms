@@ -58,9 +58,19 @@ class SubjectsController < ApplicationController
     end
   end
   def update_all
-    # @subjects = Subject.all
-    # @subjects.each { |subject| subject.move_to_position(10)}
-    redirect_to(:action=>"list")
+    # i = 0
+    # 10000.times do
+    #   i = i + 1
+    #   subject = Subject.find_by_id(i)
+    #   puts subject.inspect
+    #   subject.move_to_position(subject.id) if subject
+    #   puts subject.inspect
+    # end
+    puts params.inspect
+    @subjects = Subject.search(params[:search]).order(sort_column+" "+sort_direction).paginate(:per_page => 10, :page => params[:page])
+    @subjects.each { |subject| subject.move_to_position(subject.id)}
+    render("list", :page => params[:page], :sort => params[:sort], :direction => params[:direction], :search => params[:search])
+    # redirect_to(:action=>"list", :page => params[:page], :sort => params[:sort], :direction => params[:direction])
   end  
   def delete
      @subject = Subject.find(params[:id])

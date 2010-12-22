@@ -1,6 +1,7 @@
 <table class="list" summary="Subject list">
 	<tr class="header">
-		<th class = "round"><%= sortable "position", 		"Pos" %>			</th>
+		<th class = "round"><%= sortable "id", 				"ID" %>	</th>
+		<th class = "round"><%= sortable "position", 		"Pos" %>	</th>
 		<th class = "round"><%= sortable "name", 		"Subject" %>	</th>
 		<th class = "round"><%= sortable "visible", 	"Visible" %>	</th>
 		<th>Pages</th>
@@ -8,9 +9,10 @@
 	</tr>
 	<% @subjects.each do |subject| %>
 	<tr class="<%= cycle("odd", "even") %>">
+		<td><%= subject.id %></td>
 		<td><%= subject.position %></td>
 		<td><%= subject.name %></td>
-		<% var_class = subject %>
+		<!-- <% var_class = subject %> -->
 		<td class="center"><%= status_tag(subject.visible ) %></td>
 		<td class="center"><%= subject.pages.size %></td>
 		<td class="actions">
