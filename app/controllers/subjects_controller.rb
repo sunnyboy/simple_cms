@@ -4,6 +4,7 @@ class SubjectsController < ApplicationController
   layout "admin" # Oznamujem kontroleru, ze ma pouzivat layout "admin"
   
   before_filter :confirm_logged_in
+  caches_action :list, :layout => false
   
   def index
     list
