@@ -101,6 +101,12 @@ class SubjectsController < ApplicationController
   def destroy
     subject = Subject.find(params[:id])
     subject.move_to_position(nil)
+    flash[:notice]="Subject destroyed successfuly"    
+    redirect_to(:action=>"list", 
+    	          :page => session[:subject_page], 
+			          :sort => session[:subject_sort], 
+			          :direction => session[:subject_direction],
+			          :search => session[:subject_search] )
   end
   def javascript
     # Len pre demonštračné účely-> nemá žiadnu funkciu

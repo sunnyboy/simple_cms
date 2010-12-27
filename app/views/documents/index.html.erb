@@ -2,36 +2,13 @@
 
 <table>
   <tr>
-    <th>Id group</th>
-    <th>Id company</th>
     <th>Id sender</th>
     <th>Id recipient</th>
-    <th>Id payer</th>
-    <th>Id beneficiary</th>
     <th>Id project</th>
     <th>Id doctype</th>
-    <th>Filepath</th>
     <th>Filename</th>
-    <th>Filename original</th>
-    <th>Db link</th>
     <th>Size</th>
-    <th>Localpath</th>
-    <th>Doctime</th>
     <th>Docdate</th>
-    <th>Docdate paid</th>
-    <th>Doctade delivered</th>
-    <th>Ammount brutto</th>
-    <th>Ammount netto</th>
-    <th>Ammount vat</th>
-    <th>Ammount currency</th>
-    <th>Bookedunder</th>
-    <th>Booking?</th>
-    <th>Content</th>
-    <th>Notepublic</th>
-    <th>Noteprivat</th>
-    <th>Reference</th>
-    <th>Flags</th>
-    <th>Selected</th>
     <th></th>
     <th></th>
     <th></th>
@@ -39,36 +16,13 @@
 
 <% @documents.each do |document| %>
   <tr>
-    <td><%= document.id_group %></td>
-    <td><%= document.id_company %></td>
     <td><%= document.id_sender %></td>
     <td><%= document.id_recipient %></td>
-    <td><%= document.id_payer %></td>
-    <td><%= document.id_beneficiary %></td>
     <td><%= document.id_project %></td>
     <td><%= document.id_doctype %></td>
-    <td><%= document.filepath %></td>
     <td><%= document.filename %></td>
-    <td><%= document.filename_original %></td>
-    <td><%= document.db_link %></td>
     <td><%= document.size %></td>
-    <td><%= document.localpath %></td>
-    <td><%= document.doctime %></td>
     <td><%= document.docdate %></td>
-    <td><%= document.docdate_paid %></td>
-    <td><%= document.doctade_delivered %></td>
-    <td><%= document.ammount_brutto %></td>
-    <td><%= document.ammount_netto %></td>
-    <td><%= document.ammount_vat %></td>
-    <td><%= document.ammount_currency %></td>
-    <td><%= document.bookedunder %></td>
-    <td><%= document.booking? %></td>
-    <td><%= document.content %></td>
-    <td><%= document.notepublic %></td>
-    <td><%= document.noteprivat %></td>
-    <td><%= document.reference %></td>
-    <td><%= document.flags %></td>
-    <td><%= document.selected %></td>
     <td><%= link_to 'Show', document %></td>
     <td><%= link_to 'Edit', edit_document_path(document) %></td>
     <td><%= link_to 'Destroy', document, :confirm => 'Are you sure?', :method => :delete %></td>

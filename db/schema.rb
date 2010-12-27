@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101227083737) do
+ActiveRecord::Schema.define(:version => 20101227165943) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",      :limit => 25
@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(:version => 20101227083737) do
     t.float    "ammount_vat"
     t.string   "ammount_currency"
     t.string   "bookedunder"
-    t.integer  "booking?"
     t.string   "content"
     t.string   "notepublic"
     t.string   "noteprivat"
@@ -65,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20101227083737) do
     t.integer  "selected"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "booking"
   end
 
   create_table "pages", :force => true do |t|
