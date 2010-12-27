@@ -1,4 +1,10 @@
 SimpleCms::Application.routes.draw do
+  resources :documents
+
+  get "dropbox/authorize"
+
+  get "dropbox/import"
+
   # get "public/index"
   # 
   # get "public/show"

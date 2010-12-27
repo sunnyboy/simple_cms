@@ -1,0 +1,26 @@
+<h1>Dropbox#import</h1>
+<p>Find me in app/views/dropbox/import.html.erb</p>
+<%= @folder_list[1] %>
+
+<% for i in (0..@folder_list.size-1) do %>
+	
+	<% l= @folder_list[i][:path].to_s %>
+	<% l = l.slice(7,l.length) %>
+	
+	<% if @folder_list[i][:directory?] %>		
+		<p>
+			poradie: <%= (i+1).to_s %> FOLDER: 
+			<%= @folder_list[i][:path] %>  
+			<%= @folder_list[i][:size] %> 
+			<%= link_to('show', 'http://dl.dropbox.com/u/1143421' + l ) %>
+		</p>
+	<% else %>
+	<p>
+		poradie: <%= (i+1).to_s %> FILE___: 
+		<%= @folder_list[i][:path] %>  
+		<%= @folder_list[i][:size] %> 
+		<%= link_to('show', 'http://dl.dropbox.com/u/1143421' + l ) %>
+	</p>
+
+	<% end -%>
+<% end -%>

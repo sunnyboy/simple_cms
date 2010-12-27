@@ -1,0 +1,137 @@
+<%= form_for(@document) do |f| %>
+  <% if @document.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@document.errors.count, "error") %> prohibited this document from being saved:</h2>
+
+      <ul>
+      <% @document.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id_group %><br />
+    <%= f.text_field :id_group %>
+  </div>
+  <div class="field">
+    <%= f.label :id_company %><br />
+    <%= f.text_field :id_company %>
+  </div>
+  <div class="field">
+    <%= f.label :id_sender %><br />
+    <%= f.text_field :id_sender %>
+  </div>
+  <div class="field">
+    <%= f.label :id_recipient %><br />
+    <%= f.text_field :id_recipient %>
+  </div>
+  <div class="field">
+    <%= f.label :id_payer %><br />
+    <%= f.text_field :id_payer %>
+  </div>
+  <div class="field">
+    <%= f.label :id_beneficiary %><br />
+    <%= f.text_field :id_beneficiary %>
+  </div>
+  <div class="field">
+    <%= f.label :id_project %><br />
+    <%= f.text_field :id_project %>
+  </div>
+  <div class="field">
+    <%= f.label :id_doctype %><br />
+    <%= f.text_field :id_doctype %>
+  </div>
+  <div class="field">
+    <%= f.label :filepath %><br />
+    <%= f.text_field :filepath %>
+  </div>
+  <div class="field">
+    <%= f.label :filename %><br />
+    <%= f.text_field :filename %>
+  </div>
+  <div class="field">
+    <%= f.label :filename_original %><br />
+    <%= f.text_field :filename_original %>
+  </div>
+  <div class="field">
+    <%= f.label :db_link %><br />
+    <%= f.text_field :db_link %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br />
+    <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :localpath %><br />
+    <%= f.text_field :localpath %>
+  </div>
+  <div class="field">
+    <%= f.label :doctime %><br />
+    <%= f.time_select :doctime %>
+  </div>
+  <div class="field">
+    <%= f.label :docdate %><br />
+    <%= f.date_select :docdate %>
+  </div>
+  <div class="field">
+    <%= f.label :docdate_paid %><br />
+    <%= f.date_select :docdate_paid %>
+  </div>
+  <div class="field">
+    <%= f.label :doctade_delivered %><br />
+    <%= f.date_select :doctade_delivered %>
+  </div>
+  <div class="field">
+    <%= f.label :ammount_brutto %><br />
+    <%= f.text_field :ammount_brutto %>
+  </div>
+  <div class="field">
+    <%= f.label :ammount_netto %><br />
+    <%= f.text_field :ammount_netto %>
+  </div>
+  <div class="field">
+    <%= f.label :ammount_vat %><br />
+    <%= f.text_field :ammount_vat %>
+  </div>
+  <div class="field">
+    <%= f.label :ammount_currency %><br />
+    <%= f.text_field :ammount_currency %>
+  </div>
+  <div class="field">
+    <%= f.label :bookedunder %><br />
+    <%= f.text_field :bookedunder %>
+  </div>
+  <div class="field">
+    <%= f.label :booking? %><br />
+    <%= f.text_field :booking? %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_field :content %>
+  </div>
+  <div class="field">
+    <%= f.label :notepublic %><br />
+    <%= f.text_field :notepublic %>
+  </div>
+  <div class="field">
+    <%= f.label :noteprivat %><br />
+    <%= f.text_field :noteprivat %>
+  </div>
+  <div class="field">
+    <%= f.label :reference %><br />
+    <%= f.text_field :reference %>
+  </div>
+  <div class="field">
+    <%= f.label :flags %><br />
+    <%= f.text_field :flags %>
+  </div>
+  <div class="field">
+    <%= f.label :selected %><br />
+    <%= f.text_field :selected %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -16,11 +16,31 @@
 		<td class="center"><%= status_tag(subject.visible ) %></td>
 		<td class="center"><%= subject.pages.size %></td>
 		<td class="actions">
-			<%= link_to("Show", {:action=>"show", :id => subject.id }, :class=>"action show round center")       %>
-	    	<%= link_to("Edit", {:action=>"edit", :id => subject.id }, :class=>"action edit round center")       %>
-	    	<%= link_to("Delete", {:action=>"delete", :id => subject.id }, :class=>"action delete round center") %>
-			<%= link_to("View Pages", {:controller=>"pages", :action=>"list", 
-				:subject_id => subject.id}, :class=>"action show round center")%>
+			<%= link_to("Show", {:action=>"show", 				:id => subject.id ,
+																:page => params[:page], 
+																:sort => params[:sort], 
+																:direction => params[:direction],
+																:search => params[:search] }, 
+																:class=>"action show round center")       %>
+	    	<%= link_to("Edit", {:action=>"edit", 				:id => subject.id , 
+																:page => params[:page],
+																:sort => params[:sort], 
+																:direction => params[:direction],
+																:search => params[:search] },
+																:class=>"action edit round center")       %>
+	    	<%= link_to("Delete", {:action=>"delete", 			:id => subject.id ,
+																:page => params[:page],
+																:sort => params[:sort], 
+																:direction => params[:direction],
+																:search => params[:search] },	 
+																:class=>"action delete round center") %>
+			<%= link_to("View Pages", {:controller=>"pages", 	:action=>"list", 
+																:subject_id => subject.id , 
+																:page => params[:page],
+																:sort => params[:sort], 
+																:direction => params[:direction],
+																:search => params[:search] }, 
+																:class=>"action show round center")%>
 		</td>
 	</tr>
 	<% end %>		

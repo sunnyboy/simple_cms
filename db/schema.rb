@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101206201119) do
+ActiveRecord::Schema.define(:version => 20101227083737) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",      :limit => 25
@@ -31,6 +31,41 @@ ActiveRecord::Schema.define(:version => 20101206201119) do
   end
 
   add_index "admin_users_pages", ["admin_user_id", "page_id"], :name => "index_admin_users_pages_on_admin_user_id_and_page_id"
+
+  create_table "documents", :force => true do |t|
+    t.integer  "id_group"
+    t.integer  "id_company"
+    t.integer  "id_sender"
+    t.integer  "id_recipient"
+    t.integer  "id_payer"
+    t.integer  "id_beneficiary"
+    t.integer  "id_project"
+    t.integer  "id_doctype"
+    t.string   "filepath"
+    t.string   "filename"
+    t.string   "filename_original"
+    t.string   "db_link"
+    t.integer  "size"
+    t.string   "localpath"
+    t.time     "doctime"
+    t.date     "docdate"
+    t.date     "docdate_paid"
+    t.date     "doctade_delivered"
+    t.float    "ammount_brutto"
+    t.float    "ammount_netto"
+    t.float    "ammount_vat"
+    t.string   "ammount_currency"
+    t.string   "bookedunder"
+    t.integer  "booking?"
+    t.string   "content"
+    t.string   "notepublic"
+    t.string   "noteprivat"
+    t.string   "reference"
+    t.string   "flags"
+    t.integer  "selected"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pages", :force => true do |t|
     t.integer  "subject_id"
@@ -78,4 +113,4 @@ ActiveRecord::Schema.define(:version => 20101206201119) do
     t.datetime "updated_at"
   end
 
-end 
+end

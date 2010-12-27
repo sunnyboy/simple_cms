@@ -1,5 +1,11 @@
 <% @page_title = "Page List"%>
-<%= link_to("<<Back to Subjects list", { :controller => "subjects", :action=>"list" }, :class=>"back-link") %>
+<%= link_to("<<Back to Subjects list", { 	:controller => "subjects",
+											:action=>"list", 
+											:page => params[:page], 
+											:sort => params[:sort], 
+											:direction => params[:direction],
+											:search => params[:search] }, 
+											:class => "back-link") %>	
 <div class="page list">
 	<h2>Pages</h2>
 	

@@ -1,5 +1,10 @@
 <% @page_title = "Subject New"%>
-<%= link_to("<<Back to list", {:action=>"list"}, :class=>"back-link") %>
+<%= link_to("<<Back to list", { :action=>"list", 
+								:page => session[:subject_page], 
+								:sort => session[:subject_sort], 
+								:direction => session[:subject_direction],
+								:search => session[:subject_search] }, 
+								:class => "back-link") %>
 <div class="subject new">
 	<h2>Create Subject</h2>
 	<%= form_for(:subject, :url=> {:action=>"create"}) do |f| %>

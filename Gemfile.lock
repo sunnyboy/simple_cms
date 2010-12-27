@@ -31,6 +31,11 @@ GEM
     arel (2.0.6)
     builder (2.1.2)
     configuration (1.2.0)
+    dropbox (1.2.2)
+      json (>= 1.2.0)
+      mechanize (>= 1.0.0)
+      multipart-post (>= 1.0)
+      oauth (>= 0.3.6)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     heroku (1.14.10)
@@ -38,6 +43,7 @@ GEM
       launchy (~> 0.3.2)
       rest-client (>= 1.4.0, < 1.7.0)
     i18n (0.5.0)
+    json (1.4.6)
     json_pure (1.4.6)
     launchy (0.3.7)
       configuration (>= 0.0.5)
@@ -47,8 +53,13 @@ GEM
       i18n (~> 0.5.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mechanize (1.0.0)
+      nokogiri (>= 1.2.1)
     mime-types (1.16)
+    multipart-post (1.0.1)
     mysql2 (0.2.6)
+    nokogiri (1.4.4)
+    oauth (0.4.4)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -81,6 +92,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dropbox
   heroku
   mysql2
   rails

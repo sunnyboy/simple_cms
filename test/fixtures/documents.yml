@@ -1,0 +1,65 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id_group: 1
+  id_company: 1
+  id_sender: 1
+  id_recipient: 1
+  id_payer: 1
+  id_beneficiary: 1
+  id_project: 1
+  id_doctype: 1
+  filepath: MyString
+  filename: MyString
+  filename_original: MyString
+  db_link: MyString
+  size: 1
+  localpath: MyString
+  doctime: 2010-12-27 09:37:37
+  docdate: 2010-12-27
+  docdate_paid: 2010-12-27
+  doctade_delivered: 2010-12-27
+  ammount_brutto: 1.5
+  ammount_netto: 1.5
+  ammount_vat: 1.5
+  ammount_currency: MyString
+  bookedunder: MyString
+  booking?: 1
+  content: MyString
+  notepublic: MyString
+  noteprivat: MyString
+  reference: MyString
+  flags: MyString
+  selected: 1
+
+two:
+  id_group: 1
+  id_company: 1
+  id_sender: 1
+  id_recipient: 1
+  id_payer: 1
+  id_beneficiary: 1
+  id_project: 1
+  id_doctype: 1
+  filepath: MyString
+  filename: MyString
+  filename_original: MyString
+  db_link: MyString
+  size: 1
+  localpath: MyString
+  doctime: 2010-12-27 09:37:37
+  docdate: 2010-12-27
+  docdate_paid: 2010-12-27
+  doctade_delivered: 2010-12-27
+  ammount_brutto: 1.5
+  ammount_netto: 1.5
+  ammount_vat: 1.5
+  ammount_currency: MyString
+  bookedunder: MyString
+  booking?: 1
+  content: MyString
+  notepublic: MyString
+  noteprivat: MyString
+  reference: MyString
+  flags: MyString
+  selected: 1

@@ -1,9 +1,17 @@
 <% @page_title = "Subject Edit"%>
-<%= link_to("<<Back to list", {:action=>"list"}, :class=>"back-link") %>
+<%= link_to("<<Back to list", { :action=>"list", 
+								:page => session[:subject_page], 
+								:sort => session[:subject_sort], 
+								:direction => session[:subject_direction],
+								:search => session[:subject_search] }, 
+								:class => "back-link") %>
 <div class="subject edit">
 	<h2>Update Subject</h2>
-	<%= form_for(:subject, :url=> {:action=>"update", :id=>@subject.id}, :html=>{:multipart=>true}) do |f| %>
-		<%= render(:partial=>"form", :locals=>{:f=>f} )%>
+	<%= form_for(:subject, 		:url => {
+								:action => "update",
+								:id => @subject.id }, 
+								:html => { :multipart => true } ) do |f| %>
+		<%= render(:partial => "form", :locals => { :f => f } )%>
 		<div class="form-buttons">
 			<%= submit_tag("Update Subject") %>
 		</div>

@@ -13,6 +13,7 @@ class Subject < ActiveRecord::Base
   scope :search, lambda {|query| where(["name LIKE?","%#{query}%"])}
  
   # Tu moze byt aplikovany plugin Thinking Sphinx /epizoda 120 Railscasts/ , ktory zabezpeci full text vyhladavanie
+  
   def self.search(search)
     # Tato funkcia duplicitne prepisuje scope search, ktory uz zuzenie scope na zaklade query riesi
     if search
