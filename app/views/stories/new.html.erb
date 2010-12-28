@@ -1,0 +1,16 @@
+<% @page_title = "Story New"%>
+<%= link_to("<<Back to list", { :action=>"list", 
+								:page => session[:story_page], 
+								:sort => session[:story_sort], 
+								:direction => session[:story_direction],
+								:search => session[:story_search] }, 
+								:class => "back-link") %>
+<div class="story new">
+	<h2>Create Story</h2>
+	<%= form_for(:story, :url=> {:action=>"create"}) do |f| %>
+		<%= render(:partial=>"form", :locals=>{:f=>f} )%>
+		<div class="form-buttons">
+			<%= submit_tag("Create Story") %>
+		</div>
+	<% end %>
+</div>

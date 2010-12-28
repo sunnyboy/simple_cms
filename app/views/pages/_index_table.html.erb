@@ -1,0 +1,24 @@
+<table class="list" summary="Page list">
+	<caption>Tak toto je ta moja prva caption...</caption>
+	<tr class="header">
+		<th class = "round"><%= sortable "id", 				"ID" %>	</th>
+		<th class = "round"><%= sortable "position", 		"Pos" %></th>
+		<th class = "round"><%= sortable "name", 			"Page" %></th>
+		<th class = "round"><%= sortable "visible", 	"Visible" %></th>
+		<th>Actions</th>
+	</tr>
+	<% @pages.each do |page| %>
+	<tr>
+		<td><%= page.id %></td>
+		<td><%= page.position %></td>
+		<td><%= page.name %></td>
+		<td class="center"><%= status_tag(page.visible) %></td>
+		<td class="actions">	
+			<%= link_to("Show", {:action=>"show", :id => page.id, :story_id => params[:story_id] }, :class=>"action show round center")       %>
+	    	<%= link_to("Edit", {:action=>"edit", :id => page.id, :story_id => params[:story_id] }, :class=>"action edit round center")       %>
+	    	<%= link_to("Delete", {:action=>"delete", :id => page.id, :story_id => params[:story_id] }, :class=>"action delete round center") %>
+			<%= link_to("Sections", {:controller=>"sections", :action=>"list", :page_id => page.id }, :class=>"action show round center")%>
+		</td>
+	</tr>
+	<% end %>
+</table>

@@ -33,10 +33,10 @@ module PositionMover
   # Position_scope defines an SQL fragment used for narrowing the scope of queries related to position
   # 
   # Offen it is not desirable to manage positions for all items in class, but instead to narrow the scope
-  # based on a parent class. For example, if subject1 has 3 pages and subject 2 has 4 pages, 
-  # you would want to narrow the scope of position so that when working with subject1's pages only
-  # positions 1-3 under that subject are reordered. The positions os subjects2's pages should be unchanged.
-  # And each subject should be able to hove a page at position 1.
+  # based on a parent class. For example, if story1 has 3 pages and story 2 has 4 pages, 
+  # you would want to narrow the scope of position so that when working with story1's pages only
+  # positions 1-3 under that story are reordered. The positions os stories2's pages should be unchanged.
+  # And each story should be able to hove a page at position 1.
   # 
   # To narrow the scope, override this method in your model with the SQL that should be used to narrow the scope.
   # NB: Must come after "include PositionMover".
@@ -45,7 +45,7 @@ module PositionMover
   # class Page < ActiveRecord::Base
   #   include PositionMover
   #   def position_scope
-  #     "pages.subject_id = #{subject_id.to_i}"
+  #     "pages.story_id = #{story_id.to_i}"
   #   end
   # end
   

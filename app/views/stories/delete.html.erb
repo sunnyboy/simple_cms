@@ -1,0 +1,17 @@
+<% @page_title = "Subject Delete"%>
+<%= link_to("<<Back to list", { :action=>"list", 
+								:page => session[:story_page], 
+								:sort => session[:story_sort], 
+								:direction => session[:story_direction],
+								:search => session[:story_search] }, 
+								:class => "back-link") %>
+<div class="story delete">
+	<h2>Delete Subject</h2>
+	<%= form_for(:story, :url=>{:action=>"destroy", :id=>@story.id}) do |f| %>
+		<p>Are you sure you want to permanently delete this story?</p>
+		<p class="reference-name"><%= @story.name %></p>
+		<div class="form-buttons">
+			<%= submit_tag("Delete Story") %>
+		</div>
+	<% end %>
+</div>	

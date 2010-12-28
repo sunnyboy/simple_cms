@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101227165943) do
+ActiveRecord::Schema.define(:version => 20101228091633) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",      :limit => 25
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(:version => 20101227165943) do
   end
 
   create_table "pages", :force => true do |t|
-    t.integer  "subject_id"
+    t.integer  "story_id"
     t.string   "name"
     t.string   "permalink"
     t.integer  "position"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(:version => 20101227165943) do
   end
 
   add_index "pages", ["permalink"], :name => "index_pages_on_permalink"
-  add_index "pages", ["subject_id"], :name => "index_pages_on_subject_id"
+  add_index "pages", ["story_id"], :name => "index_pages_on_story_id"
 
   create_table "section_edits", :force => true do |t|
     t.integer  "admin_user_id"
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(:version => 20101227165943) do
 
   add_index "sections", ["page_id"], :name => "index_sections_on_page_id"
 
-  create_table "subjects", :force => true do |t|
+  create_table "stories", :force => true do |t|
     t.string   "name"
     t.integer  "position"
     t.boolean  "visible",    :default => false

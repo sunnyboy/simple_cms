@@ -2,8 +2,8 @@
 
 <table summary="Page form fields">
     <tr>
-    	<th><%= f.label(:subject_id, "Subject ID") %></th>
-    	<td><%= f.select(:subject_id, Subject.all.collect {|s| [s.name, s.id]}) %></td>
+    	<th><%= f.label(:story_id, "Story ID") %></th>
+    	<td><%= f.select(:story_id, Story.all.collect {|s| [s.name, s.id]}) %></td>
     </tr>
 	<tr>
 		<th><%= f.label(:name) %></th>

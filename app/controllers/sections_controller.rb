@@ -11,6 +11,10 @@ class SectionsController < ApplicationController
   end
   def list
     @sections = Section.sorted.where(:page_id => @page.id)
+    session[:section_page]      = params[:page]
+    session[:section_search]    = params[:search]
+    session[:section_sort]      = params[:sort]
+    session[:section_direction] = params[:direction]
   end
   def show
     @section = Section.find(params[:id])
@@ -72,8 +76,6 @@ class SectionsController < ApplicationController
   end
   private
   def find_page
-    if params[:page_id]
-      @page = Page.find_by_id(params[:page_id])
-    end
+    @page = Page.find_by_id(params[:page_id]) if params[:page_id]
   end
 end

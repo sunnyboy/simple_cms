@@ -1,0 +1,47 @@
+<table class="list" summary="Story list">
+	<tr class="header">
+		<th class = "round"><%= sortable "id", 				"ID" %>	</th>
+		<th class = "round"><%= sortable "position", 		"Pos" %>	</th>
+		<th class = "round"><%= sortable "name", 		"story" %>	</th>
+		<th class = "round"><%= sortable "visible", 	"Visible" %>	</th>
+		<th>Pages</th>
+		<th>Actions</th>
+	</tr>
+	<% @stories.each do |story| %>
+	<tr class="<%= cycle("odd", "even") %>">
+		<td><%= story.id %></td>
+		<td><%= story.position %></td>
+		<td><%= story.name %></td>
+		<!-- <% var_class = story %> -->
+		<td class="center"><%= status_tag(story.visible ) %></td>
+		<td class="center"><%= story.pages.size %></td>
+		<td class="actions">
+			<%= link_to("Show", {:action=>"show", 				:id => story.id ,
+																:page => params[:page], 
+																:sort => params[:sort], 
+																:direction => params[:direction],
+																:search => params[:search] }, 
+																:class=>"action show round center")       %>
+	    	<%= link_to("Edit", {:action=>"edit", 				:id => story.id , 
+																:page => params[:page],
+																:sort => params[:sort], 
+																:direction => params[:direction],
+																:search => params[:search] },
+																:class=>"action edit round center")       %>
+	    	<%= link_to("Delete", {:action=>"delete", 			:id => story.id ,
+																:page => params[:page],
+																:sort => params[:sort], 
+																:direction => params[:direction],
+																:search => params[:search] },	 
+																:class=>"action delete round center") %>
+			<%= link_to("Pages", {:controller=>"pages", 		:action=>"list", 
+																:story_id => story.id , 
+																:page => params[:page],
+																:sort => params[:sort], 
+																:direction => params[:direction],
+																:search => params[:search] }, 
+																:class=>"action show round center")%>
+		</td>
+	</tr>
+	<% end %>		
+</table>

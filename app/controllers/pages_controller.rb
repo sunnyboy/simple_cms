@@ -1,27 +1,32 @@
 class PagesController < ApplicationController
   
   layout "admin" # Oznamujem kontroleru, ze ma pouzivat layout "admin"
+  helper_method :sort_column, :sort_direction #toto mi umozni dostupnost metod z Views a Helperov celej aplikacie
   before_filter :confirm_logged_in
-  before_filter :find_subject
+  before_filter :find_story
   
   def index
     list
     render("list")
   end
   def list
-    if params[:subject_id]
-      @pages = Page.sorted.where(:subject_id => @subject.id)
+    if params[:story_id]
+      @pages = Page.where(:story_id => @story.id).search(params[:search]).order(sort_column+" "+sort_direction).paginate(:per_page => 10, :page => params[:page])
     else
-      @pages = Page.order("pages.position ASC")
+      @pages = Page.search(params[:search]).order(sort_column+" "+sort_direction).paginate(:per_page => 10, :page => params[:page])
     end
+    session[:page_page]      = params[:page]
+    session[:page_search]    = params[:search]
+    session[:page_sort]      = params[:sort]
+    session[:page_direction] = params[:direction]    
   end
   def show
     @page = Page.find(params[:id])
   end
   def new 
-    @page = Page.new(:name => "", :subject_id => @subject.id)
-    @page_count = @subject.pages.size + 1
-    @subjects = Subject.order("position ASC")
+    @page = Page.new(:name => "", :story_id => @story.id)
+    @page_count = @story.pages.size + 1
+    @stories = Story.order("position ASC")
   end
   def create
     new_position = params[:page].delete(:position)
@@ -32,18 +37,18 @@ class PagesController < ApplicationController
       @page.move_to_position(new_position)
       # If the save succeeds, redirect to the list action
       flash[:notice]="Page created successfuly."
-      redirect_to(:action=>"list", :id => @page.id, :subject_id => @page.subject_id)
-      # :subject_id => @page.subject_id zachova parameter subject_id pri prechode kontrolermy
+      redirect_to(:action=>"list", :id => @page.id, :story_id => @page.story_id)
+      # :story_id => @page.story_id zachova parameter story_id pri prechode kontrolermy
     else
       # If save fails, redisplay the form so that user can fix the problems
-       @page_count = @subject.pages.size + 1
+       @page_count = @story.pages.size + 1
       render("new")
-    end      
+      end      
   end
   def edit
     @page = Page.find(params[:id])
-    @page_count = @subject.pages.size
-    @subjects = Subject.order("position ASC")
+    @page_count = @story.pages.size
+    @stories = Story.order("position ASC")
   end
   def update
     # Find object using form parameters
@@ -54,13 +59,13 @@ class PagesController < ApplicationController
       @page.move_to_position(new_position)
       # If the update succeeds, redirect to the list action
       flash[:notice]="Page updated successfuly"
-      redirect_to(:action=>"list", :id => @page.id, :subject_id => @page.subject_id)
+      redirect_to(:action=>"list", :id => @page.id, :story_id => @page.story_id)
       # Or redirect show action
       # redirect_to(:action=>"show", :id=>@page.id)
     else
       # If update fails, redisplay the form so that user can fix the problems
-      @page_count = @subject.pages.size
-      @subjects = Subject.order("position ASC")
+      @page_count = @story.pages.size
+      @stories = Story.order("position ASC")
       render("edit")
     end      
   end
@@ -72,12 +77,20 @@ class PagesController < ApplicationController
      page.move_to_position(nil)
      page.destroy
      flash[:notice]="Page destroyed successfuly"
-     redirect_to(:action=>"list", :id => @page.id, :subject_id => @subject.id)
+     redirect_to(:action=>"list", :id => @page.id, :story_id => @story.id)
   end
   private
-  def find_subject
-    if params[:subject_id]
-      @subject = Subject.find_by_id(params[:subject_id])
+  def find_story
+    if params[:story_id]
+      @story = Story.find_by_id(params[:story_id])
     end
+  end
+  def sort_column  
+    Page.column_names.include?(params[:sort]) ? params[:sort] : "position"  
+    # ak nieje hodnota params[:sort] z pola platnych nazvov columns tak nastavy default hodnotu
+  end      
+  def sort_direction  
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"  
+    #ak nieje hodnota params[:direction] z pola [asc desc] tak nastavy default hodnotu
   end
 end

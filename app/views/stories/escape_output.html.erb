@@ -1,0 +1,14 @@
+<% evil_string = "<script>alert('Gotcha!'); </script>" %>
+<% good_string = "<strong>WELCOME!</strong>" %>
+
+<%= evil_string %><br/>
+<%= good_string %><br/>
+
+<%= evil_string.html_safe? %><br/>
+<%= good_string.html_safe? %><br/>
+
+<%= raw(evil_string) %><br/>
+<%= raw(good_string) %><br/>
+
+<%= h(raw(evil_string)) %><br/>
+<%= h(raw(good_string)) %><br/>

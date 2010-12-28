@@ -10,11 +10,11 @@ names = %w[auto dovoz  kvety peter novinka s pre netreba a lebo ale samo sa slnk
 pos = 0
 10.times do
   pos =+ 1
-  subject = Subject.create(
+  story = Story.create(
     :name         => names.shuffle[0..3].join(" ") ,
-    :position     => subject.id , 
+    :position     => story.id , 
     :visible      => false 
     )
-  subject.move_to_position(subject.id)
-  subject.save
+  story.move_to_position(subject.id)
+  story.save
 end

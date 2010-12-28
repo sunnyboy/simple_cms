@@ -12,7 +12,7 @@ class PublicController < ApplicationController
   end
   private
   def setup_navigation
-    @subjects = Subject.visible.sorted
+    @stories = Story.visible.sorted
   end
 
 end

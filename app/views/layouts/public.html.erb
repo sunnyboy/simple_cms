@@ -16,8 +16,8 @@
 	
 	<div id="main">		
 		<div id="navigation">
-			<%= render(:partial=>"layouts/navigation", :locals => {:subjects => @subjects}) %>
-			<% # premennu @subjects nemusim predavat cez :locals=> ... je to len ako explicitny priklad %>
+			<%= render(:partial=>"layouts/navigation", :locals => {:stories => @stories}) %>
+			<% # premennu @stories nemusim predavat cez :locals=> ... je to len ako explicitny priklad %>
 		</div>
 		<div id="content">
 			<%= yield %>
