@@ -1,53 +1,64 @@
 <%= error_messages_for (@document) %>
 
-new doc
-
+<div id="leftblock">
 <%= form_for(:document) do |f| %>  
   <div class="field">
-    <%= f.label :id_group %><br />
-    <%= f.text_field :id_group %>
+    <%= f.label :id_group %>
+    <%= f.text_field :id_group, :size => "32" %>
   </div>
   <div class="field">
-    <%= f.label :id_company %><br />
-    <%= f.text_field :id_company %>
+    <%= f.label :id_company %>
+    <%= f.text_field :id_company, :size => "32" %>
   </div>
   <div class="field">
-    <%= f.label :id_sender %><br />
-    <%= f.text_field :id_sender %>
+    <%= f.label :id_sender %>
+    <%= f.text_field :id_sender, :size => "32" %>
   </div>
   <div class="field">
-    <%= f.label :id_recipient %><br />
-    <%= f.text_field :id_recipient %>
+    <%= f.label :id_recipient %>
+    <%= f.text_field :id_recipient, :size => "32" %>
   </div>
   <div class="field">
-    <%= f.label :id_payer %><br />
-    <%= f.text_field :id_payer %>
+    <%= f.label :id_payer %>
+    <%= f.text_field :id_payer, :size => "32" %>
   </div>
   <div class="field">
-    <%= f.label :id_beneficiary %><br />
-    <%= f.text_field :id_beneficiary %>
+    <%= f.label :id_beneficiary %>
+    <%= f.text_field :id_beneficiary, :size => "32" %>
   </div>
   <div class="field">
-    <%= f.label :id_project %><br />
-    <%= f.text_field :id_project %>
+    <%= f.label :id_project %>
+    <%= f.text_field :id_project, :size => "32" %>
   </div>
   <div class="field">
-    <%= f.label :id_doctype %><br />
-    <%= f.text_field :id_doctype %>
+    <%= f.label :id_doctype %>
+    <%= f.text_field :id_doctype, :size => "32" %>
   </div>
   <div class="field">
-    <%= f.label :filename_original %><br />
-    <%= f.text_field :filename_original %>
+    <%= f.label :filename_original %>
+    <%= f.text_field :filename_original, :size => "32" %>
   </div>
   <div class="field">
-    <%= f.label :docdate %><br />
+    <%= f.label :content %>
+    <%= f.text_area :content, :size => "40x2" %>
+  </div>
+  <div class="field">
+    <%= f.label :docdate %>
     <%= f.date_select :docdate %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>
+
+<div id="rightblock">
+	<div id="docviewer">
+	<iframe name=”StatPage” src="http://docs.google.com/gview?url=http://dl.dropbox.com/u/1143421/MailAttachments/Ebay_Laky.pdf&embedded=true" width=0 height=0 style=”display:none”>
+	</iframe>
+
+	<iframe 	src="http://docs.google.com/gview?url=http://dl.dropbox.com/u/1143421/MailAttachments/Ebay_Laky.pdf&embedded=true" width=640 height=500  frameborder="0">
+	</iframe>
+	</div>
+</div>
+

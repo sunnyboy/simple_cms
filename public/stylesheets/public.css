@@ -28,14 +28,16 @@ a:hover	{ }
 /* Structure */
 #header	{ height: 4em; padding-top: 1em; text-align: center; background: #993120; color: #FFFFFF; }
 #header h1 { margin: 0; padding: 0; }
-#main	{ min-height: 500px; background: #F2DC87; }
+#main	{ min-height: 600px; background: #F2DC87; }
 #navigation
 		{ float: left; width: 180px; min-height: 480px; padding: 10px; background: #94B26F; color: #4C2516; }
-#content{ float: left; padding: 10px; }
+#content{ float: left; width: 920px; padding: 10px; }
 #footer	{ clear: both; height: 2.5em; text-align: right; background: #4C2516; color: #F2DC87; }
 #footer	p
 		{ margin: 0; padding: 0.5em 1em; }
 .logo	{ margin: 0; padding: 0.5em 0.5em; float: left; }
+.section { max-width: 740px; padding-top: 0.5em; margin-top: 0.5em; border-top: 1px dotted #666666; }
+
 		
 /* Navigation */
 #navigation ul

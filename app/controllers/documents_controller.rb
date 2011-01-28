@@ -1,5 +1,5 @@
 class DocumentsController < ApplicationController
-  
+  layout "admin" # Oznamujem kontroleru, ze ma pouzivat layout "admin"  
   def index 
     @documents = Document.all
     @documents = Document.search(params[:search]).order(sort_column+" "+sort_direction).paginate(:per_page => 10, :page => params[:page])

@@ -2,9 +2,30 @@
 /* Loads after public.css 	*/
 
 /* Structure */
-#content 	{ padding-left: 100px; padding-right: 100px; }
-#content h2	{ width: 760px; text-align: center; }
+#content 	{ position: relative; padding-left: 25px; padding-right: 25px; }
 
+#upperblock	{ position: absolute; top: 0px; left:0px; 
+			padding: 5px;
+			height: 40px;
+			width :1090px;
+			background-color: yellow;
+			margin: 10px;}
+#leftblock	{ position: absolute; top: 55px; left:0px; 
+			height: 530px;
+			width :420px;
+			background-color: red;
+			margin: 10px;
+			line-height: 100%; }
+#rightblock	{ position: absolute; top: 55px; left:430px; 
+			height: 530px;
+			width :670px;
+			background-color: blue;
+			margin: 10px;}
+#docviewer {
+  	margin-bottom: 10px;
+	padding: 5px;
+}
+#content,#upperblock h2	{ text-align: left; font-size: 100%; }
 .login form	{ margin: 100px 250px; }
 .menu .identity { text-align: center; }
 .menu ul	{ margin: 3em 250px; list-style: none; }
@@ -53,7 +74,7 @@ a.action:hover { backgrounf: #B6D492; }
 .odd		{ background: #E5CE69; }
 .even		{ background: none; }
 
-.section + .section { padding-top: 0.5em; margin-top: 0.5em; border-top: 1px dotted #666666; }
+.section + .section { max-width: 700px; padding-top: 0.5em; margin-top: 0.5em; border-top: 1px dotted #666666; }
 
 /* ERRORS */
 .field_with_errors { display: table; padding: 2px; background-color: #AA0000; }
@@ -64,3 +85,9 @@ a.action:hover { backgrounf: #B6D492; }
 #errorExplanation p { color: #333333; margin: 0; padding: 3px 0.5em; }
 #errorExplanation ul { margin-top: 0; }
 #errorExplanation ul li { list-style: square; }
+
+div.field, div.actions {
+  	margin-bottom: 2px;
+	padding: 5px;
+	float: right;
+}
