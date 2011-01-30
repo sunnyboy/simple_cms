@@ -3,7 +3,7 @@
 <table summary="Page form fields">
     <tr>
     	<th><%= f.label(:story_id, "Story ID") %></th>
-    	<td><%= f.select(:story_id, Story.all.collect {|s| [s.name, s.id]}) %></td>
+    	<td><%= f.select(:story_id, Story.all(:order => "name").collect {|s| [s.name, s.id]}) %></td>
     </tr>
 	<tr>
 		<th><%= f.label(:name) %></th>

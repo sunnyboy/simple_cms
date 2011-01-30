@@ -1,7 +1,7 @@
 class PublicController < ApplicationController
   
   layout "public"
-  before_filter :setup_navigation
+  before_filter :setup_navigation, :request_separator
   
   def index
       # intro text, landing page

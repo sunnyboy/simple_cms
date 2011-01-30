@@ -1,9 +1,9 @@
 <% @page_title = "Story List"%>
 <%= link_to("<<Back to Menu", {:controller => "access", :action=>"menu"}, :class=>"back-link") %>
 <div class="story list">
-	<h2>Storie	s</h2>
+	<h2>Stories</h2>
 	<%= link_to("Add new Story", {:action=>"new"}, :class=>"action new round") %>
-	<%= link_to("Update Storys", {:action => "update_all", 
+	<%= link_to("Update Stories", {:action => "update_all", 
 									:page => params[:page], 
 									:sort => params[:sort], 
 									:direction => params[:direction],

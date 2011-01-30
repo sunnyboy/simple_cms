@@ -5,7 +5,7 @@
 								:direction => session[:story_direction],
 								:search => session[:story_search] }, 
 								:class => "back-link") %>
-<div class="story new">
+<div id="story new">
 	<h2>Create Story</h2>
 	<%= form_for(:story, :url=> {:action=>"create"}) do |f| %>
 		<%= render(:partial=>"form", :locals=>{:f=>f} )%>

@@ -1,5 +1,8 @@
 class DropboxController < ApplicationController
+  
   layout "admin" # Oznamujem kontroleru, ze ma pouzivat layout "admin"
+  before_filter :request_separator
+      
   def index
     authorize
   end

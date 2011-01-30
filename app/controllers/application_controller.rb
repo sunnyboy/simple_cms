@@ -11,4 +11,12 @@ class ApplicationController < ActionController::Base
       return true
     end      
   end
+  def request_separator
+    puts ""
+    puts "***************************************************************"
+    puts "**********" + Time.now.to_s + "****************************"
+    puts controller_name + " ||| " + action_name
+    puts "***************************************************************"    
+  end
+
 end

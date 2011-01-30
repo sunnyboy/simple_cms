@@ -38,5 +38,6 @@ module ApplicationHelper
                     # ak su html parametre (css) tak sa musia oddelit do samostatneho hashu
                     # :page => nil zabezpeci vynulovanie parametra :page a teda pagination ide vzdy od zaciatku
   end
+
 end
 

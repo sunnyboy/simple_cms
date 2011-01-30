@@ -1,6 +1,25 @@
 <h1>Editing document</h1>
 
-<%= render 'form' %>
+<div id="upperblock">
+	<p style="float: left;">Edit document:  <%=  @document_count %> </p>
+	<p style="float: right;">
+		<%= link_to 'Back', documents_path %>
+	</p>
+	
+</div>
 
-<%= link_to 'Show', @document %> |
-<%= link_to 'Back', documents_path %>
+<div id="leftblock">
+	<h2>Edit Document</h2>
+	<%= form_for(:document, :url=> {:action=>"update"}) do |f| %>
+		<%= render(:partial=>"form", :locals=>{:f=>f} )%>
+		<div class="form-buttons">
+			<%= submit_tag("Update Document") %>
+		</div>
+	<% end %>
+</div>
+
+<div id="rightblock">
+	<iframe 								src="http://docs.google.com/gview?url=http://dl.dropbox.com/u/1143421/MailAttachments/Ebay_Laky.pdf&embedded=true" width=640 height=500  frameborder="0">
+	</iframe>
+</div>
+

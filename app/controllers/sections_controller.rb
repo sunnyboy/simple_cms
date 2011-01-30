@@ -3,7 +3,7 @@ class SectionsController < ApplicationController
   layout "admin" # Oznamujem kontroleru, ze ma pouzivat layout "admin"
  
   before_filter :confirm_logged_in
-  before_filter :find_page
+  before_filter :find_page, :request_separator
   
   def index
     list
@@ -54,7 +54,7 @@ class SectionsController < ApplicationController
       @section.move_to_position(new_position)
       # If the update succeeds, redirect to the list action
       flash[:notice]="Section updated successfuly"
-      redirect_to(:action=>"list", :id => @section.id, :page_id => @section.page_id)
+      redirect_to(:action=>"index", :id => @section.id, :page_id => @section.page_id)
       # Or redirect show action
       # redirect_to(:action=>"show", :id=>@section.id)
     else

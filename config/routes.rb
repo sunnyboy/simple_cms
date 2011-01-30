@@ -1,5 +1,26 @@
 SimpleCms::Application.routes.draw do
-  resources :documents
+  resources :partners
+  resources :documents do
+    member do
+      post "update"
+    end
+  end
+  resources :stories do
+    member do
+      post "update"
+    end
+  end
+  resources :pages do
+    member do
+      post "update"
+    end
+  end
+  resources :sections do
+    member do
+      post "update"
+    end
+  end
+
 
   get "dropbox/authorize"
   get "dropbox/import"

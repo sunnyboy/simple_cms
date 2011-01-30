@@ -1,5 +1,5 @@
 <% @page_title = "Page Delete" %>
-<%= link_to("<< Back to list", { :action=>"list", :story_id => @story.id}, :class=>"back-link") %>
+<%= link_to("<< Back to list", { :action=>"index", :story_id => @story.id}, :class=>"back-link") %>
 <div class="page delete">
 	<h2>Delete Page</h2>
 	<%= form_for(:page, :url => { :action=>"destroy", :id => @page.id, :story_id => @story.id } ) do |f| %>

@@ -3,7 +3,7 @@ class StoriesController < ApplicationController
   helper_method :sort_column, :sort_direction #toto mi umozni dostupnost metod z Views a Helperov celej aplikacie
   layout "admin" # Oznamujem kontroleru, ze ma pouzivat layout "admin"
   
-  before_filter :confirm_logged_in
+  before_filter :confirm_logged_in, :request_separator
   caches_action :list, :layout => false
   
   def index

@@ -1,17 +1,20 @@
 class PagesController < ApplicationController
   
   layout "admin" # Oznamujem kontroleru, ze ma pouzivat layout "admin"
-  helper_method :sort_column, :sort_direction #toto mi umozni dostupnost metod z Views a Helperov celej aplikacie
+  helper_method :sort_column, :sort_direction  #toto mi umozni dostupnost metod z Views a Helperov celej aplikacie
   before_filter :confirm_logged_in
-  before_filter :find_story
-  
+  before_filter :find_story, :request_separator
+
   def index
     list
     render("list")
   end
   def list
     if params[:story_id]
-      @pages = Page.where(:story_id => @story.id).search(params[:search]).order(sort_column+" "+sort_direction).paginate(:per_page => 10, :page => params[:page])
+      @pages = Page.where(:story_id => @story.id)
+      @pages = @pages.search(params[:search]).order(sort_column+" "+sort_direction)
+      @pages = @pages.paginate(:per_page => 10, :page => params[:page])
+      puts @pages.inspect
     else
       @pages = Page.search(params[:search]).order(sort_column+" "+sort_direction).paginate(:per_page => 10, :page => params[:page])
     end
@@ -57,7 +60,7 @@ class PagesController < ApplicationController
     # Update the object
     if @page.update_attributes(params[:page])
       @page.move_to_position(new_position)
-      # If the update succeeds, redirect to the list action
+      # If the update succeeds, redirect to the index action
       flash[:notice]="Page updated successfuly"
       redirect_to(:action=>"list", :id => @page.id, :story_id => @page.story_id)
       # Or redirect show action

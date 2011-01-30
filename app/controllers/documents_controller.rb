@@ -1,5 +1,6 @@
 class DocumentsController < ApplicationController
   layout "admin" # Oznamujem kontroleru, ze ma pouzivat layout "admin"  
+  before_filter :request_separator
   def index 
     @documents = Document.all
     @documents = Document.search(params[:search]).order(sort_column+" "+sort_direction).paginate(:per_page => 10, :page => params[:page])
@@ -40,10 +41,12 @@ class DocumentsController < ApplicationController
       # POST /documents
       # POST /documents.xml
       if @document.save
+        puts "Dokument ulozeny"
         format.html { redirect_to(@document, :notice => 'Document was successfully created.') }
         format.xml  { render :xml => @document, :status => :created, :location => @document }
       else
-        format.html { render :action => "new" }
+        puts "Neulozeny...aka to chyba?"
+        format.html { render :action => "new", :notice => 'Sa nevytvoril tento dokument.' }
         format.xml  { render :xml => @document.errors, :status => :unprocessable_entity }
       end
     end
@@ -58,6 +61,7 @@ class DocumentsController < ApplicationController
     respond_to do |format|
       # PUT /documents/1
       # PUT /documents/1.xml
+      puts params[:document].inspect
       if @document.update_attributes(params[:document])
         format.html { 
           flash[:notice]="Subject updated successfuly"
