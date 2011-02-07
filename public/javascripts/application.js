@@ -1,3 +1,3 @@
-function jsRoar() {
-	alert("I am Javascript. Here me roar!");
+function toggleWithEffect(element){
+  $('#'+element).toggle();
 }
