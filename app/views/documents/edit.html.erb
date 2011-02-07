@@ -10,7 +10,7 @@
 
 <div id="leftblock">
 	<h2>Edit Document</h2>
-	<%= form_for(:document, :url=> {:action=>"update"}) do |f| %>
+	<%= simple_form_for(:document, :url=> {:action=>"update"}) do |f| %>
 		<%= render(:partial=>"form", :locals=>{:f=>f} )%>
 		<div class="form-buttons">
 			<%= submit_tag("Update Document") %>
@@ -22,4 +22,8 @@
 	<iframe 								src="http://docs.google.com/gview?url=http://dl.dropbox.com/u/1143421/MailAttachments/Ebay_Laky.pdf&embedded=true" width=640 height=500  frameborder="0">
 	</iframe>
 </div>
+
+
+
+
 

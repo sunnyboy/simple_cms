@@ -43,6 +43,9 @@ GEM
       launchy (~> 0.3.2)
       rest-client (>= 1.4.0, < 1.7.0)
     i18n (0.5.0)
+    jquery-rails (0.2.7)
+      rails (~> 3.0)
+      thor (~> 0.14.4)
     json (1.4.6)
     json_pure (1.4.6)
     launchy (0.3.7)
@@ -88,6 +91,7 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
+    wice_grid (3.0.0.pre2)
     will_paginate (3.0.pre2)
 
 PLATFORMS
@@ -96,8 +100,10 @@ PLATFORMS
 DEPENDENCIES
   dropbox
   heroku
+  jquery-rails
   mysql2
   nifty-generators
   rails
   simple_form
+  wice_grid (= 3.0.0.pre2)
   will_paginate

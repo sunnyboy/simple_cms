@@ -1,62 +1,76 @@
-<div class="field">
-    <%= f.label :id_group %>
-    <%= f.text_field :id_group, :size => "32" %>
-  </div>
-<div class="field">
-    <%= f.label :id_company %>
-    <%= f.text_field :id_company, :size => "32" %>
-  </div>
-<div class="field">
-    <%= f.label :id_sender %>
-    <%= f.collection_select ( :document, :id_sender, 
-					Partner.all(:order => "name"), :id, :name,
-					{ :prompt => "---------Select sender----------",
-					:selected => [@document.id_sender] },
-					{ :include_blank => true, 
-					:multiple => false, 
-					:size => 1 ,
-					:style => "width:235px" } )
-	%>
-  </div>
-<div class="field">
-    <%= f.label :id_recipient %>
-    <%= f.select 	:id_recipient, 
-					Partner.all(:order => "name").collect { |s| [s.name, s.id] },
-					{ :prompt => "---------Select recipient----------",
-					:selected => [@document.id_recipient] },
-					{ :include_blank => true, 
-					:multiple => false, 
-					:size => 1 ,
-					:style => "width:235px" }
-	%>
-  </div>
-<div class="field">
-    <%= f.label :id_payer %>
-    <%= f.text_field :id_payer, :size => "32" %>
-  </div>
-<div class="field">
-    <%= f.label :id_beneficiary %>
-    <%= f.text_field :id_beneficiary, :size => "32" %>
-  </div>
-<div class="field">
-    <%= f.label :id_project %>
-    <%= f.text_field :id_project, :size => "32" %>
-  </div>
-<div class="field">
-    <%= f.label :id_doctype %>
-    <%= f.text_field :id_doctype, :size => "32" %>
-  </div>
-<div class="field">
-    <%= f.label :filename_original %>
-    <%= f.text_field :filename_original, :size => "32" %>
-  </div>
-<div class="field">
-    <%= f.label :content %>
-    <%= f.text_area :content, :size => "40x2" %>
-  </div>
-<div class="field">
-    <%= f.label :docdate %>
-    <%= f.date_select :docdate %>
-  </div>
+<%= error_messages_for (@document) %>
 
+<%= f.input 		:id_group, 		:required => false,
+									:input_html => { 	:tabindex => autotab, 
+														:size => '32', 
+														:class => 'field' }  %>
+<%= f.input 		:id_company, 	:required => false,
+									:input_html => { 	:tabindex => autotab,
+														:size => '32', 
+														:class => 'field' }  %>
+<%= f.input 		:id_sender, 	:collection => Partner.all(:order => "name"),
+									:required => false, 
+									:include_blank => true, 
+									:prompt => "---------Select sender-----------",
+									:input_html => { 	:tabindex => autotab, 
+														:width => '32', 
+														:size => '1', 
+														:class => 'field' }  %>
+<%= f.input 		:id_recipient, 	:collection => Partner.all(:order => "name"),
+									:required => false,
+									:include_blank => true, 
+									:prompt => "---------Select recipient---------",
+									:input_html => { 	:tabindex => autotab,
+														:width => '32', 
+														:size => '1', 
+														:class => 'field' }  %>
+<%= f.input 		:id_payer, 		:collection => Partner.all(:order => "name"),
+									:required => false,
+									:include_blank => true, 
+									:prompt => "----------Select payer-----------",
+									:input_html => { 	:tabindex => autotab,
+														:width => '32', 
+														:size => '1', 
+														:class => 'field' }  %>
+<%= f.input 		:id_beneficiary,:collection => Partner.all(:order => "name"),
+									:required => false,
+									:include_blank => true, 
+									:prompt => "--------Select beneficiary--------",
+									:input_html => { 	:tabindex => autotab,
+														:width => '32', 
+														:size => '1', 
+														:class => 'field' }  %>
+<%= f.input 		:id_project, 	:collection => ['1a','2b','3c','4d','5e'],
+									:required => false,
+									:include_blank => true, 
+									:prompt => "----------Select project----------",
+									:input_html => { 	:tabindex => autotab,
+														:width => '32', 
+														:size => '1', 
+														:class => 'field' }  %>
+<%= f.input 		:id_doctype, 	:collection => ['1a','2b','3c','4d','5e'],
+									:required => false,
+									:include_blank => true, 
+									:prompt => "---------Select doctype---------",
+									:input_html => { 	:tabindex => autotab,
+														:width => '32', 
+														:size => '1', 
+														:class => 'field' }  %>
+<%= f.input 		:filename, 		:required => false,
+									:input_html => { 	:tabindex => autotab,
+														:size => '32', 
+														:class => 'field' }  %>
+<%= f.input 		:content, 		:as => :text,
+									:required => false,
+									:input_html => { 	:tabindex => autotab,
+														:size => '32', 
+														:class => 'field' }  %>
+<%= f.input 		:docdate, 		:as => :date,
+									:include_blank => true, 
+									:start_year => Date.today.year - 20,
+									:end_year => Date.today.year + 20,
+									:required => false,
+ 									:input_html => { 	:tabindex => autotab,
+ 														:size => '1', 
+ 														:class => 'field' }  %>
 

@@ -1,47 +1,27 @@
-<table class="list" summary="Story list">
-	<tr class="header">
-		<th class = "round"><%= sortable "id", 				"ID" %>	</th>
-		<th class = "round"><%= sortable "position", 		"Pos" %>	</th>
-		<th class = "round"><%= sortable "name", 		"story" %>	</th>
-		<th class = "round"><%= sortable "visible", 	"Visible" %>	</th>
-		<th>Pages</th>
-		<th>Actions</th>
-	</tr>
-	<% @stories.each do |story| %>
-	<tr class="<%= cycle("odd", "even") %>">
-		<td><%= story.id %></td>
-		<td><%= story.position %></td>
-		<td><%= story.name %></td>
-		<!-- <% var_class = story %> -->
-		<td class="center"><%= status_tag(story.visible ) %></td>
-		<td class="center"><%= story.pages.size %></td>
-		<td class="actions">
-			<%= link_to("Show", {:action=>"show", 				:id => story.id ,
-																:page => params[:page], 
-																:sort => params[:sort], 
-																:direction => params[:direction],
-																:search => params[:search] }, 
-																:class=>"action show round center")       %>
-	    	<%= link_to("Edit", {:action=>"edit", 				:id => story.id , 
-																:page => params[:page],
-																:sort => params[:sort], 
-																:direction => params[:direction],
-																:search => params[:search] },
-																:class=>"action edit round center")       %>
-	    	<%= link_to("Delete", {:action=>"delete", 			:id => story.id ,
-																:page => params[:page],
-																:sort => params[:sort], 
-																:direction => params[:direction],
-																:search => params[:search] },	 
-																:class=>"action delete round center") %>
-			<%= link_to("Pages", {:controller=>"pages", 		:action=>"index", 
-																:story_id => story.id , 
-																:page => params[:page],
-																:sort => params[:sort], 
-																:direction => params[:direction],
-																:search => params[:search] }, 
-																:class=>"action show round center")%>
-		</td>
-	</tr>
-	<% end %>		
-</table>
+
+<%= grid(@stories_grid) do |g|
+
+    g.column :column_name => 'ID', :attribute_name => 'id' do |story|
+      story.id
+    end
+
+    g.column :column_name => 'Pos', :attribute_name => 'position' do |story|
+      story.position
+    end
+
+    g.column  :column_name => 'Name', :attribute_name => 'name' do |story|
+      story.name
+    end
+
+    g.column  :column_name => 'Visible', :attribute_name => 'visible' do |story|
+      story.visible? ? 'Yes' : 'No'
+    end
+
+    g.column do |story|
+      link_to('Edit', edit_story_path(story))
+    end
+	g.action_column
+  end -%>
+
+ <%= button_to_function "Submit", submit_grid_javascript(@stories_grid) %>
+ <%= button_to_function "Reset",  reset_grid_javascript(@stories_grid) %>

@@ -1,14 +1,14 @@
 <div id="upperblock">
-	<p style="float: left;">New document:  <%=  @document_count %> </p>
+	<h2 style="float: left;">New document: <%=  @document_count -%> </h2>
 	<p style="float: right;">
-		<%= link_to 'Back', documents_path %>
+		<%= link_to 'Back', documents_path -%>
 	</p>
 	
 </div>
 
 <div id="leftblock">
-	<h2>Create Document Story</h2>
-	<%= form_for(:document, :url=> {:action=>"create"}) do |f| %>
+	
+	<%= simple_form_for(:document, :url=> {:action=>"create"}) do |f| %>
 	
 		<%= render(:partial=>"form", :locals=>{:f=>f} )%>
 		<div class="form-buttons">
@@ -18,7 +18,9 @@
 </div>
 
 <div id="rightblock">
-	<iframe 								src="http://docs.google.com/gview?url=http://dl.dropbox.com/u/1143421/MailAttachments/Ebay_Laky.pdf&embedded=true" width=640 height=500  frameborder="0">
-	</iframe>
+	<div id="docviewer">
+		<iframe 								src="http://docs.google.com/gview?url=http://dl.dropbox.com/u/1143421/MailAttachments/Ebay_Laky.pdf&embedded=true" width=640 height=500  frameborder="0">
+		</iframe>
+	</div>
 </div>
 

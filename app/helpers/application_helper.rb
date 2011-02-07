@@ -38,6 +38,10 @@ module ApplicationHelper
                     # ak su html parametre (css) tak sa musia oddelit do samostatneho hashu
                     # :page => nil zabezpeci vynulovanie parametra :page a teda pagination ide vzdy od zaciatku
   end
-
+  def autotab
+    @current_tab ||= 0
+    @current_tab += 1
+  end
+  
 end
 
