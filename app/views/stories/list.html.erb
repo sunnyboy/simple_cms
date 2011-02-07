@@ -3,15 +3,15 @@
 <div class="story list">
 	<h2>Stories</h2>
 	<%= link_to("Add new Story", {:action=>"new"}, :class=>"action new round") %>
-	<%= link_to("Update Stories", {:action => "update_all", 
-									:page => params[:page], 
-									:sort => params[:sort], 
-									:direction => params[:direction],
-									:search => params[:search] }, 
-									:class=>"action new round") %>
+	<!-- <%= link_to("Update Stories", {:action => "update_all", 
+										:page => params[:page], 
+										:sort => params[:sort], 
+										:direction => params[:direction],
+										:search => params[:search] }, 
+										:class=>"action new round") %> -->
 	<div><%= pluralize(@stories.size, "story") %> found</div>	
 	<%= render :partial => 'search_field_tag' %>
 	<%= render :partial => 'index_table' %>
-	<%= will_paginate @stories %>
+	
 </div>
 	

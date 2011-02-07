@@ -57,15 +57,15 @@ a.action:hover { backgrounf: #B6D492; }
 	background-repeat: no-repeat;
 	background-position: right center;
 }
-.list th .asc {
+/*.list th .asc {
   	background-image: url(/images/up_arrow.gif);
 	background-color: lightgrey;
 }
 .list th .desc {
   	background-image: url(/images/down_arrow.gif);
 	background-color: lightgrey;
-}	
-.show table	{ clear: both; margin: 0 200px; width: 300px; }
+}*/	
+.show table	{ clear: both; margin: 0 200px; width: 300px; }*/
 .show table.wide { width: 600px; margin: 0 50px; }
 .show table tr th { white-space: nowrap; padding-right: 5px; }
 .show table tr td { border: 1px solid #666666; }
