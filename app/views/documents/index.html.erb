@@ -1,35 +1,50 @@
 <h1>Listing documents</h1>
+<table class="list" summary="Story list">
+	<tr class="header">
+		<th class = "round"><%= sortable "id_sender", 				"Sender" %> </th>
+	    <th class = "round"><%= sortable "id_recipient", 			"Recipient" %> </th>
+	    <th class = "round"><%= sortable "id_project", 				"Project" %> </th>
+	    <th class = "round"><%= sortable "id_doctype", 				"DocType" %> </th>
+	    <th class = "round"><%= sortable "filename", 				"Filename" %> </th>
+	    <th class = "round"><%= sortable "size", 					"Size" %> </th>
+	    <th class = "round"><%= sortable "docdate", 				"docdate" %> </th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	</tr>
+	<% @documents.each do |document| %>
+	<tr class="<%= cycle("odd", "even") %>">
+		<td><%= document.id_sender %></td>
+		<td><%= document.id_recipient %></td>
+		<td><%= document.id_project %></td>
+		<td><%= document.id_doctype %></td>
+		<td><%= document.filename %></td>
+		<td><%= document.size %></td>
+		<td><%= document.docdate %></td>
+		<td class="actions">
+			<%= link_to("Show", {:action=>"show", 				:id => document.id ,
+																:page => params[:page], 
+																:sort => params[:sort], 
+																:direction => params[:direction],
+																:search => params[:search] }, 
+																:class=>"action show round center")       %>
+	    	<%= link_to("Edit", {:action=>"edit", 				:id => document.id , 
+																:page => params[:page],
+																:sort => params[:sort], 
+																:direction => params[:direction],
+																:search => params[:search] },
+																:class=>"action edit round center")       %>
+	    	<%= link_to("Delete", {:action=>"delete", 			:id => document.id ,
+																:page => params[:page],
+																:sort => params[:sort], 
+																:direction => params[:direction],
+																:search => params[:search] },	 
+																:class=>"action delete round center") %>
 
-<table>
-  <tr>
-    <th>Id sender</th>
-    <th>Id recipient</th>
-    <th>Id project</th>
-    <th>Id doctype</th>
-    <th>Filename</th>
-    <th>Size</th>
-    <th>Docdate</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @documents.each do |document| %>
-  <tr>
-    <td><%= document.id_sender %></td>
-    <td><%= document.id_recipient %></td>
-    <td><%= document.id_project %></td>
-    <td><%= document.id_doctype %></td>
-    <td><%= document.filename %></td>
-    <td><%= document.size %></td>
-    <td><%= document.docdate %></td>
-    <td><%= link_to 'Show', document %></td>
-    <td><%= link_to 'Edit', edit_document_path(document) %></td>
-    <td><%= link_to 'Destroy', document, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+		</td>
+	</tr>
+	<% end %>		
 </table>
 
-<br />
 
 <%= link_to 'New Document', new_document_path %>
