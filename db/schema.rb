@@ -120,4 +120,15 @@ ActiveRecord::Schema.define(:version => 20110128191304) do
     t.datetime "updated_at"
   end
 
+  create_table "wice_grid_serialized_queries", :force => true do |t|
+    t.string   "name"
+    t.string   "grid_name"
+    t.text     "query"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "wice_grid_serialized_queries", ["grid_name", "id"], :name => "index_wice_grid_serialized_queries_on_grid_name_and_id"
+  add_index "wice_grid_serialized_queries", ["grid_name"], :name => "index_wice_grid_serialized_queries_on_grid_name"
+
 end

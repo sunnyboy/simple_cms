@@ -121,6 +121,13 @@ class StoriesController < ApplicationController
     # Len pre demonštračné účely-> nemá žiadnu funkciu
     # Sa môže vymazať
   end
+  def process_issues
+    if params[:grid] && params[:grid][:selected]
+      # processing tasks
+      flash[:notice] = 'Selected tasks: ' + params[:grid][:selected].join(', ')
+    end
+    redirect_to story_index_path
+  end
   private  
   def sort_column  
     Story.column_names.include?(params[:sort]) ? params[:sort] : "position"  

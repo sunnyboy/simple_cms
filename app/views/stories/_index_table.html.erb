@@ -1,27 +1,25 @@
+<% form_tag(process_issues_story_path) do -%>
 
-<%= grid(@stories_grid) do |g|
+  <% if flash[:notice]%>
+  <p><%= flash[:notice] %></p>
+  <% end -%>
 
-    g.column :column_name => 'ID', :attribute_name => 'id' do |story|
-      story.id
-    end
+  <p>
+  <%= submit_tag 'Process tasks' %>
+  </p>
 
-    g.column :column_name => 'Pos', :attribute_name => 'position' do |story|
-      story.position
-    end
-
-    g.column  :column_name => 'Name', :attribute_name => 'name' do |story|
-      story.name
-    end
-
-    g.column  :column_name => 'Visible', :attribute_name => 'visible' do |story|
-      story.visible? ? 'Yes' : 'No'
-    end
-
-    g.column do |story|
-      link_to('Edit', edit_story_path(story))
-    end
+ <%= grid(@stories_grid, :allow_showing_all_records => false) do |g|
+    g.column :column_name => 'ID', :attribute_name => 'id', :auto_reload => true
+	g.column :column_name => 'Pos', :attribute_name => 'position' , :auto_reload => true
+	g.column  :column_name => 'Name', :attribute_name => 'name', :auto_reload => true
+	g.column  :column_name => 'Visible', :attribute_name => 'visible', :auto_reload => true
+	g.column do |story|
+		link_to('Edit', edit_story_path(story))
+	end
 	g.action_column
   end -%>
 
- <%= button_to_function "Submit", submit_grid_javascript(@stories_grid) %>
- <%= button_to_function "Reset",  reset_grid_javascript(@stories_grid) %>
+  <%= submit_tag 'Process tasks' %>
+
+<% end -%>
+

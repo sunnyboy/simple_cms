@@ -11,6 +11,7 @@ SimpleCms::Application.routes.draw do |map|
   end
   resources :stories do
     post "update", :on => :member
+    post "process_issues", :on => :collection
   end
   resources :pages do
     member do
@@ -23,6 +24,8 @@ SimpleCms::Application.routes.draw do |map|
     end
   end
   
+  
+
   get "dropbox/authorize"
   get "dropbox/import"
 

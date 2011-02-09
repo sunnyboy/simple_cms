@@ -1,17 +1,16 @@
 <% @page_title = "Story List"%>
 <%= link_to("<<Back to Menu", {:controller => "access", :action=>"menu"}, :class=>"back-link") %>
 <div class="story list">
-	<h2>Stories</h2>
 	<%= link_to("Add new Story", {:action=>"new"}, :class=>"action new round") %>
-	<!-- <%= link_to("Update Stories", {:action => "update_all", 
-										:page => params[:page], 
-										:sort => params[:sort], 
-										:direction => params[:direction],
-										:search => params[:search] }, 
-										:class=>"action new round") %> -->
-	<div><%= pluralize(@stories.size, "story") %> found</div>	
-	<%= render :partial => 'search_field_tag' %>
+	<%= saved_queries_panel(@stories_grid) %>
 	<%= render :partial => 'index_table' %>
-	
+	<p>
+		IDs of records on the current page:
+	    <%= @stories_grid.current_page_records.map(&:id).to_sentence %>
+	</p>
+	<p>
+	    IDs of all records:
+	    <%= @stories_grid.all_pages_records.map(&:id).to_sentence %>
+	</p>
 </div>
 	
