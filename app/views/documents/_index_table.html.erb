@@ -1,0 +1,34 @@
+<% form_tag(documents_path, :method => :get) do %>
+	<%= dump_filter_parameters_as_hidden_fields(@documents_grid) %>
+	<p>	
+		Items per page selection: <%= select_tag 'propage', 
+		options_for_select([['2', 2], ['5', 5], ['7', 7], ['10', 10], ['15', 15], ['20', 20], @propage], @propage), 
+	    :onchange => 'this.form.submit()' %>
+	</p>
+<% end -%>
+	
+  <% if flash[:notice]%>
+  <p><%= flash[:notice] %></p>
+  <% end -%>
+
+
+ <%= grid(@documents_grid, :allow_showing_all_records => false) do |g|
+    g.column :column_name => 'ID', :attribute_name => 'id', :auto_reload => true
+	g.column :column_name => 'Sender', :model_class => 'Partner',:attribute_name => 'name', :table_alias => ' senders_documents' , :auto_reload => true do |task|
+		task.sender.name if task.sender
+	end
+	g.column  :column_name => 'Recipient', :model_class => 'Partner', :attribute_name => 'name', :table_alias => ' recipients_documents', :auto_reload => true do |task|
+		task.recipient.name if task.recipient
+	end
+	g.column  :column_name => 'Project', :attribute_name => 'id_project', :auto_reload => true do |task|
+	end
+	g.column  :column_name => 'Type', :attribute_name => 'id_doctype', :auto_reload => true do |task|
+	end
+	g.column  :column_name => 'Filename', :attribute_name => 'filename', :auto_reload => true
+	g.column  :column_name => 'Date', :attribute_name => 'docdate', :auto_reload => true
+	g.column  :column_name => 'Content', :attribute_name => 'content', :auto_reload => true
+	g.column do |document|
+		link_to('Edit', edit_document_path(document))
+	end
+	g.action_column
+  end -%>

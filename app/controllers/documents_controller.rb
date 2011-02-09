@@ -1,20 +1,15 @@
 class DocumentsController < ApplicationController
   layout "admin" # Oznamujem kontroleru, ze ma pouzivat layout "admin"  
   before_filter :request_separator
-  def index 
-    @documents = Document.all
-    @documents = Document.search(params[:search]).order(sort_column+" "+sort_direction).paginate(:per_page => 10, :page => params[:page])
-    session[:document_page] = params[:page]
-    session[:document_search] = params[:search]
-    session[:document_sort] = params[:sort]
-    session[:document_direction] = params[:direction]    
-    respond_to do |format|
-      # GET /documents
-      # GET /documents.xml
-      format.html # index.html.erb
-      format.xml  { render :xml => @documents }
-    end
+  
+  def index
+    list
+    render("list")
   end
+  def list
+    @propage = params[:propage] == nil ? 5 : params[:propage]
+    @documents_grid = initialize_grid(Document, :per_page => @propage)
+  end  
   def show
     @document = Document.find(params[:id])
     respond_to do |format|
@@ -97,6 +92,13 @@ class DocumentsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  def process_issues
+    if params[:grid] && params[:grid][:selected]
+      # processing tasks
+      flash[:notice] = 'Selected tasks: ' + params[:grid][:selected].join(', ')
+    end
+    redirect_to document_index_path
+  end
 private
   def sort_column  
     Document.column_names.include?(params[:sort]) ? params[:sort] : "id"  
@@ -105,6 +107,12 @@ private
   def sort_direction  
     %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"  
     #ak nieje hodnota params[:direction] z pola [asc desc] tak nastavy default hodnotu
+  end
+
+  protected
+
+  def setup_ui
+    @current_example_key = :integration_with_forms_path
   end
 
 end

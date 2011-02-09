@@ -12,11 +12,6 @@ class StoriesController < ApplicationController
   end
   def list
     @stories_grid = initialize_grid(Story, :per_page => 8)
-    @stories = Story.search(params[:search]).order(sort_column+" "+sort_direction).paginate(:per_page => 10, :page => params[:page])
-    session[:story_page]      = params[:page]
-    session[:story_search]    = params[:search]
-    session[:story_sort]      = params[:sort]
-    session[:story_direction] = params[:direction]
   end
   def show
     @story = Story.find(params[:id])

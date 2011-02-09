@@ -26,7 +26,7 @@ a:hover	{ }
 .center	{ text-align: center; }
 
 /* Structure */
-#header	{ height: 4em; padding-top: 1em; text-align: center; background: #993120; color: #FFFFFF; }
+#header	{ height: 4em; padding-top: 1em; text-align: center; background: lightpink; color: #FFFFFF; }
 #header h1 { margin: 0; padding: 0; }
 #main	{ min-height: 600px; background: lightblue; }
 #navigation

@@ -1,0 +1,27 @@
+<h1>Listing doctypes</h1>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @doctypes.each do |doctype| %>
+  <tr>
+    <td><%= doctype.code %></td>
+    <td><%= doctype.name %></td>
+    <td><%= doctype.description %></td>
+    <td><%= link_to 'Show', doctype %></td>
+    <td><%= link_to 'Edit', edit_doctype_path(doctype) %></td>
+    <td><%= link_to 'Destroy', doctype, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Doctype', new_doctype_path %>

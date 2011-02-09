@@ -36,7 +36,7 @@ a:hover		{ text-decoration: underline; }
 
 /* Large action buttons */
 a.action	{ float: right; padding: 2px 5px; margin: 0 0 1em 1em; 
-			background: #94B26F; color: #4C2516; border: 1px solid #4C2516; }
+			background: pink; color: #4C2516; border: 0px solid #4C2516; }
 a.action:hover { backgrounf: #B6D492; }	
 
 /* Small action buttons */

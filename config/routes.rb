@@ -1,16 +1,13 @@
-ActionController::Routing::Routes.draw do |map|
-  map.resources :story, :collection => {:process_issues => :post}
-end
-
 SimpleCms::Application.routes.draw do |map|
+  resources :projects
+  resources :doctypes
   resources :partners
   resources :documents do
-    member do
-      post "update"
-    end
+    post "update", :on => :member
   end
   resources :stories do
     post "update", :on => :member
+    post "process_issues", :on => :collection
   end
   resources :pages do
     member do
@@ -45,3 +42,9 @@ SimpleCms::Application.routes.draw do |map|
   
   Wice::define_routes(self, 'queries')
 end
+
+ActionController::Routing::Routes.draw do |map|
+  map.resources :story, :collection => {:process_issues => :post}
+  map.resources :document, :collection => {:process_issues => :post}
+end
+

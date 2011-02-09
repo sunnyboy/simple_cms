@@ -1,0 +1,22 @@
+<% @page_title = "Documents"%>
+<%= link_to("<<Back to Menu", {:controller => "access", :action=>"menu"}, :class=>"back-link") %>
+<div class="document list">
+	<%= link_to("Add new Document", {:action=>"new"}, :class=>"action new round") %>
+	<%= link_to("Import new Documents", {:action=>"new"}, :class=>"action new round") %>
+	<%= saved_queries_panel(@documents_grid) %>
+	<%= render :partial => 'index_table' %>
+	<br/>
+	<%= link_to("Delete", {:action=>"new"}, :class=>"action new round") %>
+	<%= link_to("Export", {:action=>"new"}, :class=>"action new round") %>
+	<%= link_to("Send", {:action=>"new"}, :class=>"action new round") %>
+	<%= link_to("Batch action", {:action=>"new"}, :class=>"action new round") %>
+	<p>
+		IDs of records on the current page:
+	    <%= @documents_grid.current_page_records.map(&:id).to_sentence %>
+	</p>
+	<p>
+	    IDs of all records:
+	    <%= @documents_grid.all_pages_records.map(&:id).to_sentence %>
+	</p>
+</div>
+	
