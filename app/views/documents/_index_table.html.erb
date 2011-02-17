@@ -12,8 +12,9 @@
 
 
  <%= grid(@documents_grid, :allow_showing_all_records => false) do |g|
+	g.action_column
     g.column :column_name => 'ID', :attribute_name => 'id', :auto_reload => true
-	g.column :column_name => 'Sender', :model_class => 'Partner',:attribute_name => 'name', :table_alias => ' senders_documents' , :auto_reload => true do |task|
+	g.column :column_name => 'Sender', :model_class => 'Partner',:attribute_name => 'name',  :auto_reload => true do |task|
 		task.sender.name if task.sender
 	end
 	g.column  :column_name => 'Recipient', :model_class => 'Partner', :attribute_name => 'name', :table_alias => ' recipients_documents', :auto_reload => true do |task|
@@ -29,5 +30,5 @@
 	g.column do |document|
 		link_to('Edit', edit_document_path(document))
 	end
-	g.action_column
+	
   end -%>

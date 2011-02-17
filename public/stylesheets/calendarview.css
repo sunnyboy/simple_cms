@@ -1,0 +1,74 @@
+div.calendar {
+    color: #000000;
+    font-size: smaller;
+    z-index: 5;
+}
+div.calendar.popup {
+    margin-left: -40px;
+    margin-top: -100px;
+}
+div.calendar table {
+    background-color: #EEEEEE;
+    border: 1px solid #AAAAAA;
+    border-collapse: collapse;
+}
+div.calendar thead {
+    background-color: white;
+}
+div.calendar td, div.calendar th {
+    padding: 3px;
+    text-align: center;
+}
+div.calendar td.title {
+    font-weight: bold;
+}
+div.calendar th {
+    background: none repeat scroll 0 0 #DDDDDD;
+    border-bottom: 1px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
+    color: #555555;
+    font-weight: bold;
+}
+div.calendar tr.days td {
+    color: #555555;
+    cursor: pointer;
+    text-align: center;
+    width: 2em;
+}
+div.calendar tr.days td:hover, div.calendar td.cvbutton:hover {
+    background-color: #34ABFA;
+    cursor: pointer;
+}
+div.calendar tr td.closeButton:hover {
+    background-color: #34ABFA;
+    cursor: pointer;
+}
+div.calendar tr.days td:active div.calendar td.cvbutton:active {
+    background-color: #CCDDEE;
+}
+div.calendar tr.days td.selected {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-weight: bold;
+}
+div.calendar tr.days td.today {
+    color: #D50000;
+    font-weight: bold;
+}
+div.calendar tr.days td.otherDay {
+    color: #BBBBBB;
+}
+div.calendar .draggableHandler {
+    cursor: move;
+}
+span.date_picker a.date_label {
+    margin-left: 5px;
+    margin-right: 5px;
+    text-decoration: none;
+}
+span.date_picker a.date_label:hover {
+    text-decoration: line-through;
+}
+span.date_picker span.trigger:hover {
+    cursor: pointer;
+}

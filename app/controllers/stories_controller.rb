@@ -11,7 +11,7 @@ class StoriesController < ApplicationController
     render("list")
   end
   def list
-    @stories_grid = initialize_grid(Story, :per_page => 8)
+    @stories_grid = initialize_grid(Story, :name => 'section_grid', :per_page => 8)
   end
   def show
     @story = Story.find(params[:id])
