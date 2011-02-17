@@ -1,11 +1,16 @@
 <% @page_title = "Documents"%>
-<%= link_to("<<Back to Menu", {:controller => "access", :action=>"menu"}, :class=>"back-link") %>
+<%= link_to("Add new Document", {:action=>"new"}, :class=>"action new round") %>
+<%= link_to("Import new Documents", {:action=>"new"}, :class=>"action new round") %>
+<%= link_to("<<Back to Menu", {:controller => "access", :action=>"menu"}, :class=>"action new round") %>
+<%= link_to("<<Back to Menu", {:controller => "access", :action=>"menu"}, :class=>"action new round") %>
+<%= link_to("<<Back to Menu", {:controller => "access", :action=>"menu"}, :class=>"action new round") %>
+<br/> 
+
 <div class="document list">
-	<%= link_to("Add new Document", {:action=>"new"}, :class=>"action new round") %>
-	<%= link_to("Import new Documents", {:action=>"new"}, :class=>"action new round") %>
+	
 	<%= saved_queries_panel(@documents_grid) %>
 	<%= render :partial => 'index_table' %>
-	<br/>
+	<br/> 
 	<%= link_to("Delete", {:action=>"new"}, :class=>"action new round") %>
 	<%= link_to("Export", {:action=>"new"}, :class=>"action new round") %>
 	<%= link_to("Send", {:action=>"new"}, :class=>"action new round") %>

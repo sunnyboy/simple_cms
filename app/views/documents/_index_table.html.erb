@@ -1,14 +1,13 @@
 <% form_tag(documents_path, :method => :get) do %>
 	<%= dump_filter_parameters_as_hidden_fields(@documents_grid) %>
 	<p>	
-		Items per page selection: <%= select_tag 'propage', 
-		options_for_select([['2', 2], ['5', 5], ['7', 7], ['10', 10], ['15', 15], ['20', 20], @propage], @propage), 
-	    :onchange => 'this.form.submit()' %>
+		Items per page: <%= select_tag 'propage', 
+		options_for_select([['2', 2], ['5', 5], ['7', 7], ['10', 10], ['15', 15], ['20', 20], @propage], @propage), :onchange => 'this.form.submit()' %>
 	</p>
 <% end -%>
 	
   <% if flash[:notice]%>
-  <p><%= flash[:notice] %></p>
+  	<p><%= flash[:notice] %></p>
   <% end -%>
 
 
