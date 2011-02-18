@@ -11,13 +11,19 @@
   <% end -%>
 
 
- <%= grid(@documents_grid, :allow_showing_all_records => false) do |g|
+ <%= grid(@documents_grid, :allow_showing_all_records => false, :show_filters => :when_filtered) do |g|
 	g.action_column
-    g.column :column_name => 'ID', :attribute_name => 'id', :auto_reload => true
-	g.column :column_name => 'Sender', :model_class => 'Partner',:attribute_name => 'name',  :auto_reload => true do |task|
+    g.column 	:column_name => 'ID', :attribute_name => 'id', :auto_reload => true
+
+	g.column 	:column_name => 'Sender', :model_class => 'Partner',:attribute_name => 'id',  
+				:auto_reload => true, 
+				:custom_filter => Partner.find(:all).map{|pr| [pr.name, pr.id]} do |task|
 		task.sender.name if task.sender
 	end
-	g.column  :column_name => 'Recipient', :model_class => 'Partner', :attribute_name => 'name', :table_alias => ' recipients_documents', :auto_reload => true do |task|
+	g.column  	:column_name => 'Recipient', :model_class => 'Partner', :attribute_name => 'id', 
+				:table_alias => 'recipients_documents', 
+				:auto_reload => true,
+				:custom_filter => Partner.find(:all).map{|pr| [pr.name, pr.id]} do |task|
 		task.recipient.name if task.recipient
 	end
 	g.column  :column_name => 'Project', :attribute_name => 'id_project', :auto_reload => true do |task|
@@ -30,5 +36,29 @@
 	g.column do |document|
 		link_to('Edit', edit_document_path(document))
 	end
-	
   end -%>
+
+	<%= grid(@documents_grid_search, :allow_showing_all_records => false, :show_filters => :when_filtered) do |g|
+		g.action_column
+	    g.column 	:column_name => 'ID', :attribute_name => 'id', :auto_reload => true
+
+		g.column 	:column_name => 'Sender', :model_class => 'Partner',:attribute_name => 'name',  
+					:auto_reload => true do |task|
+			task.sender.name if task.sender
+		end
+		g.column  	:column_name => 'Recipient', :model_class => 'Partner', :attribute_name => 'name', 
+					:table_alias => 'recipients_documents', 
+					:auto_reload => true do |task|
+			task.recipient.name if task.recipient
+		end
+		g.column  :column_name => 'Project', :attribute_name => 'id_project', :auto_reload => true do |task|
+		end
+		g.column  :column_name => 'Type', :attribute_name => 'id_doctype', :auto_reload => true do |task|
+		end
+		g.column  :column_name => 'Filename', :attribute_name => 'filename', :auto_reload => true
+		g.column  :column_name => 'Date', :attribute_name => 'docdate', :auto_reload => true
+		g.column  :column_name => 'Content', :attribute_name => 'content', :auto_reload => true
+		g.column do |document|
+			link_to('Edit', edit_document_path(document))
+		end
+		 end -%>

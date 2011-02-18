@@ -8,7 +8,18 @@ class DocumentsController < ApplicationController
   end
   def list
     @propage = params[:propage] == nil ? 5 : params[:propage]
-    @documents_grid = initialize_grid(Document, :name => 'document_grid', :per_page => @propage, :include => [:sender, :recipient])
+    @documents_grid = initialize_grid(Document, 
+      :name => 'document_grid', 
+      :per_page => @propage, 
+      :include => [:sender, :recipient],
+      :custom_order => {'documents.id_sender' => 'documents.name'}
+    )
+    @documents_grid_search = initialize_grid(Document, 
+      :name => 'document_grid_search', 
+      :per_page => 3, 
+      :include => [:sender, :recipient],
+      :custom_order => {'documents.id_sender' => 'documents.name'}
+    )
   end  
   def show
     @document = Document.find(params[:id])
