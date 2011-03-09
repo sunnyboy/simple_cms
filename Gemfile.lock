@@ -77,7 +77,7 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
-    wice_grid (3.0.0.pre2)
+    wice_grid (3.0.0.pre3)
     will_paginate (3.0.pre2)
 
 PLATFORMS
@@ -89,5 +89,5 @@ DEPENDENCIES
   nifty-generators
   rails
   simple_form
-  wice_grid (= 3.0.0.pre2)
+  wice_grid (= 3.0.0.pre3)
   will_paginate

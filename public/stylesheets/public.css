@@ -22,7 +22,7 @@ table tr th, table tr td
 a, a:visited
 		{ color: #993120; }
 a:hover	{ }
-.clear: { clear: both; }
+.clear { clear: both; }
 .center	{ text-align: center; }
 
 /* Structure */
@@ -59,6 +59,5 @@ span.status.false { background: red; color: red; }
 
 /* Round corners */		
 .round	{ -moz-border-radius:    10px;
-		  -webkit-border-radius: 10px;
-		  border-radius:         10px; }
+		  -webkit-border-radius: 10px; }
 
