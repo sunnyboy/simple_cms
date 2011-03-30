@@ -2,7 +2,9 @@
 /* Loads after public.css 	*/
 
 /* Structure */
-#content 	{ position: relative; padding-left: 25px; padding-right: 25px; }
+#content 	{ position: relative; 
+			padding-left: 25px; 
+			padding-right: 25px; }
 
 #upperblock	{ position: absolute; top: 0px; left:0px; 
 			padding: 5px;
@@ -21,13 +23,14 @@
 			width :670px;
 			background-color: grey;
 			margin: 10px;}
-#docviewer {
-  	margin: 10px;
-	padding: 5px;
-}
-#content,#upperblock h2	{ text-align: left; font-size: 100%; }
+#docviewer 	{ margin: 10px;
+			padding: 5px;}
+#content,#upperblock h2	
+			{ text-align: 
+			left; font-size: 100%; }
 .login form	{ margin: 100px 250px; }
-.menu .identity { text-align: center; }
+.menu .identity 
+			{ text-align: center; }
 .menu ul	{ margin: 3em 250px; list-style: none; }
 .menu ul li	{ margin-bottom: 1em; }
 
@@ -35,28 +38,44 @@ a			{ text-decoration: none; }
 a:hover		{ text-decoration: underline; }
 
 /* Large action buttons */
-a.action	{ float: right; padding: 2px 5px; margin: 0 0 1em 1em; 
-			background: pink; color: #4C2516; border: 0px solid #4C2516; }
-a.action:hover { background: #B6D492; }	
+a.action	{ float: right; 
+			padding: 2px 5px; 
+			margin: 0 0 1em 1em; 
+			background: pink; 
+			color: #4C2516; 
+			border: 0px solid #4C2516; }
+a.action:hover 
+			{ background: #B6D492; }	
 
 /* Small action buttons */
 .actions	{ width: 200px; }
-.actions a.action { float: left; min-width: 3.5em; 
-			padding: 1px 2px; margin: 2px 5px; font-size: 0.7em; }
+.actions a.action 
+			{ float: left; 
+			min-width: 3.5em; 
+			padding: 1px 2px; 
+			margin: 2px 5px; 
+			font-size: 0.7em; }
 
 /* CRUD */
-.notice		{ height: 1.25em; padding: 0.5em; text-align: center; 
-			background: #B6D491; color: #4C2516; }
-.back-link	{ font-size: 0.8em; margin-bottom: 1em; }
-.form-buttons { text-align: center; margin: 1em 0; }
+.notice		{ height: 1.25em; 
+			padding: 0.5em; 
+			text-align: center; 
+			background: #B6D491; 
+			color: #4C2516; }
+.back-link	{ font-size: 0.8em; 
+			margin-bottom: 1em; }
+.form-buttons 
+			{ text-align: center; 
+			margin: 1em 0; }
 
 .list table	{ clear: both; width: 100%; }
-.list table tr td { border: 1px solid #666666; width: auto;}
-.list th .current {
-  	padding-right: 12px;
-	background-repeat: no-repeat;
-	background-position: right center;
-}
+.list table tr td 
+			{ border: 1px solid #666666; 
+			width: auto;}
+.list th .current 
+			{ padding-right: 12px;
+			background-repeat: no-repeat;
+			background-position: right center; }
 /*.list th .asc {
   	background-image: url(/images/up_arrow.gif);
 	background-color: lightgrey;
@@ -65,52 +84,78 @@ a.action:hover { background: #B6D492; }
   	background-image: url(/images/down_arrow.gif);
 	background-color: lightgrey;
 }*/	
-.show table	{ clear: both; margin: 0 200px; width: 300px; }
-.show table.wide { width: 600px; margin: 0 50px; }
-.show table tr th { white-space: nowrap; padding-right: 5px; }
-.show table tr td { border: 1px solid #666666; }
-.edit table, .new table { margin: auto; }
+.show table	{ clear: both; 
+			margin: 0 200px; 
+			width: 300px; }
+.show table.wide 
+			{ width: 600px; 
+			margin: 0 50px; }
+.show table tr th 
+			{ white-space: nowrap; 
+			padding-right: 5px; }
+.show table tr td 
+			{ border: 1px solid #666666; }
+.edit table, .new table 
+			{ margin: auto; }
 
 .odd		{ background: #E5CE69; }
 .even		{ background: none; }
 
-.section + .section { max-width: 700px; padding-top: 0.5em; margin-top: 0.5em; border-top: 1px dotted #666666; }
+.section + .section 
+			{ max-width: 700px; 
+			padding-top: 0.5em; 
+			margin-top: 0.5em; 
+			border-top: 1px dotted #666666; }
 
 /* ERRORS */
-.field_with_errors { display: table; padding: 2px; background-color: #AA0000; }
-#errorExplanation { width: 400px; padding: 0; margin: 0 auto 1.5em; 
-			border: 1px solid #AA0000; background-color: #FFFFFF; font-size: 12px;}
-#errorExplanation h2 { font-weight: bold; font-size: 12px; 
-			padding: 5px 5px 5px 15px; margin: 0; width: 380px; background-color: #993120; }
-#errorExplanation p { color: #333333; margin: 0; padding: 3px 0.5em; }
-#errorExplanation ul { margin-top: 0; }
-#errorExplanation ul li { list-style: square; }
+.field_with_errors 
+			{ display: table; 
+			padding: 2px; 
+			background-color: #AA0000; }
+#errorExplanation 
+			{ width: 400px; 
+			padding: 0; 
+			margin: 0 auto 1.5em; 
+			border: 1px solid #AA0000; 
+			background-color: #FFFFFF; 
+			font-size: 12px;}
+#errorExplanation h2 
+			{ font-weight: bold; 
+			font-size: 12px; 
+			padding: 5px 5px 5px 15px; 
+			margin: 0; 
+			width: 380px; 
+			background-color: #993120; }
+#errorExplanation p 
+			{ color: #333333; 
+			margin: 0; 
+			padding: 3px 0.5em; }
+#errorExplanation 
+			ul { margin-top: 0; }
+#errorExplanation 
+			ul li { list-style: square; }
 
-div.field, div.actions {
-  	margin-bottom: 2px;
-	padding: 5px;
-	width: 100px;
-	float: right;
-}
+div.field, 
+div.actions	{ margin-bottom: 2px;
+			padding: 5px;
+			width: 100px;
+			float: right;}
 
 
-.simple_form label {
-	float: left;
-	width: 100px;
-	text-align: right;
-	margin: 2px 10px;
-}
+.simple_form label 
+			{ float: left;
+			width: 100px;
+			text-align: right;
+			margin: 2px 10px; }
 
-.simple_form div.input {
-	margin: 10px;
-}
+.simple_form div.input 
+			{ margin: 10px; }
 
-.simple_form div.boolean, .simple_form div.input[type='submit'] {
-	margin-left: 120px;
-}
+.simple_form div.boolean, 
+.simple_form div.input[type='submit'] 
+			{ margin-left: 120px;}
 
-.simple_form div.boolean label {
-	float: none;
-	margin: 0;
-}
+.simple_form div.boolean label 
+			{ float: none;
+			margin: 0; }
 

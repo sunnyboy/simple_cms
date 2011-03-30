@@ -110,30 +110,44 @@
 
 .wice_grid_container h3 {
   font-family: 'Lucida Grande';
-  font-size: 16px;
+  font-size: 26px;
   font-style: normal;
   font-weight: bold;
   margin-bottom: 2px;
 }
 
 .wice_grid_query_panel {
-  width: 400px;
+  width: 1100px;
   border:1px solid #ddd;
   margin-top : 10px;
   margin-bottom : 10px;
-  padding : 5px;
+  padding : 25px;
 }
 
 
-.wice_grid_query_panel .query_list{
+.wice_grid_query_panel .query_list li {
   list-style-image: none;
   list-style-position: outside;
   list-style-type: none;
-  margin-left : 0px;  
+  margin-left : 0px; 
+
+	background-color: #EFF2F7;
+	border: 1px solid #CCD5E4;
+	border-radius: 5px 5px 5px 5px;
+	color: #000000;
+	cursor: default;
+	float: left;
+	font-size: 11px;
+	height: auto !important;
+	margin: 3px;
+	overflow: hidden;
+	padding: 1px 15px 1px 3px;
+	white-space: nowrap;
+	display:inline;
 }
 
 .wice_grid_query_panel .query_list li a.query_load_link {
-  text-decoration: none;
+  		text-decoration: none;
 }
 
 
@@ -171,3 +185,24 @@
   margin-left : 0px;
 }
 
+li {
+
+}
+#document_grid_saved_query_name {
+	background-color: #EFF2F7;
+	border: 1px solid #CCD5E4;
+	border-radius: 5px 5px 5px 5px;
+	color: #000000;
+	cursor: default;
+	float: left;
+	font-size: 11px;
+	height: 20px;
+	margin: 3px;
+	overflow: hidden;
+	padding: 1px 3px;
+	white-space: nowrap;	
+}
+
+#document_grid_notification_messages{
+	float: right;;	
+}

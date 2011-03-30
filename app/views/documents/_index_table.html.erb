@@ -1,4 +1,4 @@
-<% form_tag(documents_path, :method => :get) do %>
+	<% form_tag(documents_path, :method => :get) do %>
 	<%= dump_filter_parameters_as_hidden_fields(@documents_grid) %>
 	<p>	
 		Items per page: <%= select_tag 'propage', 
@@ -38,7 +38,7 @@
 	end
   end -%>
 
-	<%= grid(@documents_grid_search, :allow_showing_all_records => false, :show_filters => :always) do |g|
+	<!-- <%= grid(@documents_grid_search, :allow_showing_all_records => false, :show_filters => :always) do |g|
 		g.action_column
 	    g.column 	:column_name => 'ID', :attribute_name => 'id', :auto_reload => true
 
@@ -61,4 +61,4 @@
 		g.column do |document|
 			link_to('Edit', edit_document_path(document))
 		end
-		 end -%>
+		 end -%> -->

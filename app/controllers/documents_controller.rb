@@ -10,7 +10,7 @@ class DocumentsController < ApplicationController
     @propage = params[:propage] == nil ? 5 : params[:propage]
     @documents_grid = initialize_grid(Document, 
       :name => 'document_grid', 
-      :per_page => @propage, 
+      :per_page => @propage,
       :include => [:sender, :recipient],
       :custom_order => {'documents.id_sender' => 'documents.name'}
     )
