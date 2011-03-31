@@ -117,11 +117,12 @@
 }
 
 .wice_grid_query_panel {
-  width: 1100px;
-  border:1px solid #ddd;
-  margin-top : 10px;
-  margin-bottom : 10px;
-  padding : 25px;
+  	width: 1100px;
+  	border:5px solid #ddd;
+	border-radius: 15px;
+  	margin-top : 10px;
+  	margin-bottom : 10px;
+  	padding : 5px;
 }
 
 
@@ -185,16 +186,14 @@
   margin-left : 0px;
 }
 
-li {
+li {}
 
-}
 #document_grid_saved_query_name {
 	background-color: #EFF2F7;
 	border: 1px solid #CCD5E4;
 	border-radius: 5px 5px 5px 5px;
 	color: #000000;
 	cursor: default;
-	float: left;
 	font-size: 11px;
 	height: 20px;
 	margin: 3px;
@@ -204,5 +203,4 @@ li {
 }
 
 #document_grid_notification_messages{
-	float: right;;	
 }
